@@ -14,6 +14,10 @@ class CategoriesController < ApplicationController
 		end
 	end
 
+	def show
+		@products = Product.where(category_id: params[:id])		
+	end
+
 	def edit
 	end
 

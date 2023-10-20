@@ -1,15 +1,15 @@
-h1 This is menu page
+h1 Menu
 p = link_to 'New Category', new_category_path
 
 - if @categories.any?
 	- @categories.each do |category|
-		= category.name
+		= link_to category.name, category_path(category)
 		br
 		= link_to 'Edit', edit_category_path(category)
 		br
 		= link_to 'Delete', category_path(category), data: {turbo_method: :delete, turbo_confirm: "Confirm delete category?"}
 		br
 		br
-
 - else
 	p No category yet. 
+

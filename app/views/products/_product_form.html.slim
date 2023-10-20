@@ -1,1 +1,12 @@
-_product_form.html.slim
+= form_for ([@category, @product]) do |f|
+	= f.label :name, "Name : "
+	= f.text_field :name
+	br
+	= f.label :price, "Price : "
+	= f.number_field :price, step: 0.01
+	br
+
+	- if @product.new_record?
+		= f.submit 'Create'
+	- else
+		= f.submit 'Update'

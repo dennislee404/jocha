@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <nav class="navbar p-2" style="box-shadow: 0px 0.5px;">
+      <% if user_signed_in? %>
+        <%= current_user.email %>
+        <%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete} %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
+    </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

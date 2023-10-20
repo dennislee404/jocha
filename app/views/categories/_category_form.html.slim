@@ -1,0 +1,7 @@
+h3 Name:
+= form_with model: @category do |f|
+	= f.text_field :name
+	- if @category.new_record?
+		= f.submit 'Create'
+	- else
+		= f.submit 'Update'

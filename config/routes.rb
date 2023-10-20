@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#index"
+
+  resources :categories, only: [:new, :create, :destroy, :edit, :update]
+
+  get "/menu", to: "pages#menu", as: "menu_path"
 end

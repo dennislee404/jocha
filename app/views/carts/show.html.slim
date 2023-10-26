@@ -1,0 +1,18 @@
+h1 Cart
+
+table.table.table-striped
+  	thead
+        tr
+            td Item
+            td Price
+            td Quantity
+    tbody
+        tr  
+      	= render :partial => 'cart_item', :collection => @cart.cart_items
+
+div
+    p SubTotal: <%= number_to_currency @cart.subtotal %>
+div
+    p Taxes: <%= number_to_currency @cart.taxes %>
+div
+    p Total: <%= number_to_currency @cart.total %>

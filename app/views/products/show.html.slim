@@ -8,7 +8,7 @@ span RM
 br
 br
 
-= form_tag(carts_path, method: :get) do
+= form_tag(root_path, method: :get) do
 	= number_field_tag 'quantity', min:1, max:10
 	= hidden_field_tag 'product_id', value: @product.id
 	= submit_tag 'Add to Cart'

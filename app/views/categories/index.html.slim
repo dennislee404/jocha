@@ -12,6 +12,9 @@ div.menu
 		- else
 			p No category yet. 
 	div.content
-		p show content
+		- if @category.products.any?
+			- @category.products.each do |product|
+				= link_to product.name, product_path(product) 
+				br
 
 p = link_to 'New Category', new_category_path

@@ -12,9 +12,18 @@ div.menu
 		- else
 			p No category yet. 
 	div.content
-		- if @category.products.any?
-			- @category.products.each do |product|
-				= link_to product.name, product_path(product) 
-				br
-
+		div.row
+			p = link_to 'New Product', new_product_path(category_id: @category.id)
+			- if @category.products.any?
+				- @category.products.each do |product|
+					div.col-3
+						div.card
+							= link_to product_path(product) do
+								div.card-img-top
+									- if product.photos.attached?
+										= image_tag product.photos, width: 280
+									- else
+										p No photos found
+								div.card-body
+									h6.card-title = product.name
 p = link_to 'New Category', new_category_path

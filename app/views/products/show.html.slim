@@ -1,0 +1,10 @@
+= @product.name
+br
+span RM 
+= @product.price
+br
+br
+
+= form_tag(cart_path, method: :post) do
+	= number_field_tag 'quantity', min:1, max:10
+	= submit_tag 'Add to Cart'

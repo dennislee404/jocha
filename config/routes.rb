@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "categories#index"
 
-  resources :categories do 
-    resources :products, except: [:index]
-  end
+  resources :categories
+  resources :products
+
 
   get "/menu", to: "pages#menu", as: "menu_path"
 end

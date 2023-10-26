@@ -14,7 +14,7 @@ div.menu
 	div.content
 		- if @category.products.any?
 			- @category.products.each do |product|
-				= product.name 
+				= link_to product.name, product_path(product) 
 				br
 
 p = link_to 'New Category', new_category_path

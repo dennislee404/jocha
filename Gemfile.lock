@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/crowdint/acts_as_shopping_cart.git
+  revision: ce656b5f0247836094acb6a857252b2c1507d061
+  branch: 0-1-x
+  specs:
+    acts_as_shopping_cart (0.1.6)
+      activerecord (> 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -269,6 +277,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  acts_as_shopping_cart!
   aws-sdk-s3 (~> 1)
   bootsnap
   capybara

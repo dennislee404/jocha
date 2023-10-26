@@ -16,10 +16,10 @@ gem "stimulus-rails"
 gem "sassc-rails"
 gem "slim-rails"
 
-
 gem "jbuilder"
 
 gem "devise"
+gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
 
 gem "image_processing", "~> 1.2"
 gem "aws-sdk-s3", "~> 1"

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products
-
+  resources :carts, only: [:index]
 
   get "/menu", to: "pages#menu", as: "menu_path"
 end

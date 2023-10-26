@@ -16,6 +16,7 @@ gem "stimulus-rails"
 gem "sassc-rails"
 gem "slim-rails"
 
+
 gem "jbuilder"
 
 gem "devise"

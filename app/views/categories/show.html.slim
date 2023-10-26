@@ -1,19 +1,25 @@
+p.d-flex.justify-content-end = link_to 'New Category', new_category_path
 div.menu
 	div.sidebar
 		- if @categories.any?
 			- @categories.each do |category|
-				= link_to category.name, category_path(category)
-				br
-				= link_to 'Edit', edit_category_path(category)
-				br
-				= link_to 'Delete', category_path(category), data: {turbo_method: :delete, turbo_confirm: "Confirm delete category?"}
-				br
-				br
+				div.d-flex.gap-1
+					= link_to category.name, category_path(category)
+					 
+					br
+					br
 		- else
 			p No category yet. 
 	div.content
-		div.row
+		div.d-flex.justify-content-between
+			div.d-flex.gap-1
+				p = @category.name
+				= link_to edit_category_path(@category) do 
+					= fa_icon "pen-to-square"
+				= link_to category_path(@category), data: {turbo_method: :delete, turbo_confirm: "Confirm delete category?"} do 
+					= fa_icon "trash-can"
 			p = link_to 'New Product', new_product_path(category_id: @category.id)
+		div.row
 			- if @category.products.any?
 				- @category.products.each do |product|
 					div.col-3
@@ -26,4 +32,4 @@ div.menu
 										p No photos found
 								div.card-body
 									h6.card-title = product.name
-p = link_to 'New Category', new_category_path
+

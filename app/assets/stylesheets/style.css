@@ -1,0 +1,20 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.menu {
+	display: flex;
+	gap: 20px;
+}
+
+.sidebar {
+	background: grey;
+	padding: 10px;
+}
+
+.content {
+	background: lightgreen;
+	width: 80%;
+	padding: 10px;
+}

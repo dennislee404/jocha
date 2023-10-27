@@ -8,7 +8,7 @@ span RM
 br
 br
 
-= button_to 'Add to cart', cart_path(:product_id => @product)
+= button_to 'Add to cart', cart_items_path(id: @product.id)
 br
 	
 = link_to 'Edit', edit_product_path(@product)

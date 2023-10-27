@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products
-  resources :carts
+  resource :cart, path:'cart', only: [:show, :destroy]
+  resources :cart_items, path:'items', only: [:create, :update, :destroy]
 
   get "/menu", to: "pages#menu", as: "menu_path"
 end

@@ -1,3 +1,9 @@
-= cart_item.item.name
-= cart_item.item.price
-= cart_item.quantity
+tbody
+    tr.text-center
+        td.fas.fa-trash-alt
+        td = image_tag cart_item.item.photos, height: 100
+        td = cart_item.item.name
+        td = number_to_currency(cart_item.item.price)
+        td = form_tag(cart_item_path(id: cart_item.id), method: :patch) do
+        	= select_tag :quantity, options_for_select(1..99)
+        td = cart_item.item.price * cart_item.quantity

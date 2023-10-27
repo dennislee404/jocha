@@ -1,23 +1,34 @@
-h1 Cart
+section.container
+    h2.font-weight-bold Cart
+section#cart-container.container.my-5
+    table
+        thead
+            tr.text-center
+                td Remove 
+                td Image
+                td Item
+                td Price
+                td Quantity
+                td Total
+        = render partial: 'cart_item', :collection => @cart.cart_items
 
-table.table.table-striped
-  	thead
-        tr
-            td Item
-            td Price
-            td Quantity
-    tbody
-        tr  
-      	= render :partial => 'cart_item', :collection => @cart.cart_items
-        = @cart.cart_items.each do |cart_item|
-            = cart_item
 
-div
-    span SubTotal: 
-    = number_to_currency @cart.subtotal
-div
-    span Taxes: 
-    = number_to_currency @cart.taxes
-div
-    span Total: 
-    = number_to_currency @cart.total
+
+
+
+
+
+
+
+ 
+      	/ = render partial: 'cart_item', :collection => @cart.cart_items
+
+/ div
+/     span SubTotal: 
+/     = number_to_currency @cart.subtotal
+/ div
+/     span Taxes: 
+/     = number_to_currency @cart.taxes
+/ div
+/     span Total: 
+/     = number_to_currency @cart.total

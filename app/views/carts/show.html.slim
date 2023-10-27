@@ -9,10 +9,15 @@ table.table.table-striped
     tbody
         tr  
       	= render :partial => 'cart_item', :collection => @cart.cart_items
+        = @cart.cart_items.each do |cart_item|
+            = cart_item
 
 div
-    p SubTotal: <%= number_to_currency @cart.subtotal %>
+    span SubTotal: 
+    = number_to_currency @cart.subtotal
 div
-    p Taxes: <%= number_to_currency @cart.taxes %>
+    span Taxes: 
+    = number_to_currency @cart.taxes
 div
-    p Total: <%= number_to_currency @cart.total %>
+    span Total: 
+    = number_to_currency @cart.total

@@ -18,17 +18,21 @@ div.menu.container
 					= link_to category_path(@category), data: {turbo_method: :delete, turbo_confirm: "Confirm delete category?"} do 
 						i.fa.fa-trash-can
 				p = link_to 'New Product', new_product_path(category_id: @category.id)
-			div.row
-				- if @category.products.any?
-					- @category.products.each do |product|
-						div.col-3
-							div.card
-								= link_to product_path(product) do
-									div.card-img-top
-										- if product.photos.attached?
-											= image_tag product.photos, height: 222
-										- else
-											p No photos found
-									div.card-body
-										h6.card-title = product.name
+			div.position-relative
+				div.row.row-cols-auto.px-2
+					- if @category.products.any?
+						- @category.products.each do |product|
+							div.col-md-4
+								div.card.h-100
+									= link_to product_path(product) do
+										div.card-img-top.img-fluid
+											- if product.photos.attached?
+												= image_tag product.photos, width: 300
+											- else
+												p No photos found
+										div.card-body
+											h6.card-title = product.name
 
+nav.navbar.fixed-bottom.bg-success
+	div.container-fluid.justify-content-center
+    	= link_to 'Cart' cart_path

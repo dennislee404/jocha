@@ -1,11 +1,22 @@
 class CartsController < ApplicationController
-	def index
-		@cart = Cart.create
-		# @product = Product.find_by(id: params[:product_id])
-		# @cart.add(@product, @product.price, params[:quantity])
+	before_action :extract_shopping_cart
+
+	def create
+		@product = Product.find(params[:id])
+		binding.break
+		if @cart.add(@product, @product.price, params[:quantity])
+			redirect_to cart_path
+		end
 	end
 
 	def show
-		@cart = Cart.create
+
+	end
+
+	private
+	def extract_shopping_cart
+		cart_id = session[:cart_id]
+		@cart = session[:cart_id] ? Cart.find(cart_id) :Cart.create
+		session[:cart_id] = @cart.id
 	end
 end

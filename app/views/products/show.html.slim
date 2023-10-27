@@ -13,6 +13,4 @@ br
 	
 = link_to 'Edit', edit_product_path(@product)
 
-nav.navbar.fixed-bottom.bg-success
-	div.container-fluid.justify-content-center
-    	= link_to 'Cart', cart_path
+= render partial: 'carts/cart_footer'

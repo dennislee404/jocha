@@ -1,0 +1,6 @@
+nav.navbar.fixed-bottom.bg-success
+	div.container-fluid.justify-content-center
+    	= link_to cart_path do 
+	    	<span class="fa-stack fa-2x" data-count="#{@cart.total_unique_items}">
+				i.fa-solid.fa-cart-shopping
+			</span>

@@ -21,6 +21,4 @@ div.menu.container
 										= image_tag Product.find_by(category_id: category.id).photos, class: 'img-thumbnail'
 										p = category.name
 
-nav.navbar.fixed-bottom.bg-success
-	div.container-fluid.justify-content-center
-    	= link_to 'Cart', cart_path
+= render partial: 'carts/cart_footer'

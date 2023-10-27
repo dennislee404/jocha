@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 	def create
 		@item = Product.find(params[:id])
 		@cart.add(@item, @item.price)
-		redirect_to cart_path
+		redirect_back fallback_location: root_path
 	end
 
 	def update

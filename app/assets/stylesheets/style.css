@@ -67,3 +67,9 @@ a {
 .green {
 	background-color: green;
 }
+
+.img-thumbnail {
+	width: 25% !important;
+	margin: 10px;
+	border-radius: 100px !important;
+}

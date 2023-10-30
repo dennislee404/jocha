@@ -1,23 +1,24 @@
-- if @product.photos.attached?
-	= image_tag @product.photos, height:200
-br
-= @product.name
-br
-span RM 
-= @product.price
-br
-br
+div.container
+	- if @product.photos.attached?
+		= image_tag @product.photos, height:200
+	br
+	= @product.name
+	br
+	span RM 
+	= @product.price
+	br
+	br
 
-span Size options: 
-br
-= link_to 'medium'
-br
-= link_to 'large'
+	span Size options: 
+	br
+	= link_to 'medium'
+	br
+	= link_to 'large'
 
-= button_to 'Add to cart', cart_items_path(id: @product.id)
-br
-	
-= link_to 'Edit', edit_product_path(@product)
-= link_to 'Delete', product_path(@product), data: {turbo_method: :delete, turbo_confirm: "Confirm delete product?"}
+	= button_to 'Add to cart', cart_items_path(id: @product.id)
+	br
+		
+	= link_to 'Edit', edit_product_path(@product)
+	= link_to 'Delete', product_path(@product), data: {turbo_method: :delete, turbo_confirm: "Confirm delete product?"}
 
 = render partial: 'carts/cart_footer'

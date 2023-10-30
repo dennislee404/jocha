@@ -19,8 +19,8 @@
 			= f.label :photos, class: 'col-form-label'
 		div.col-10
 			= f.file_field :photos, class: 'form-control'
-	div.row
-		div.col-2.text-end
+	div.row.mt-3
+		div.text-center
 			- if @product.new_record?
 				= f.submit 'Create', class:"btn btn-success"
 			- else

@@ -19,6 +19,14 @@
 			= f.label :photos, class: 'col-form-label'
 		div.col-10
 			= f.file_field :photos, class: 'form-control'
+	div.container-fluid.border.rounded.mt-3.pt-2
+		div.row.g-3
+			strong Variant
+		div.row.g-3
+			div.col-2
+				p Variant 1 
+			div.col-10
+
 	div.row.mt-3
 		div.text-center
 			- if @product.new_record?

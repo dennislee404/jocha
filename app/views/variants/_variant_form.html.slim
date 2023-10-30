@@ -1,0 +1,11 @@
+= form_with model: @variant do |f|
+	= f.label :name
+	= f.text_field :name
+	br
+	= f.label :selection
+	= f.text_field :selection
+	br
+	- if @variant.new_record?
+		= f.submit 'Create'
+	- else
+		= f.submit 'Update'

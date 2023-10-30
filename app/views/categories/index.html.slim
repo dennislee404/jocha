@@ -1,27 +1,28 @@
-p.d-flex.justify-content-end = link_to 'New Category', new_category_path
-div.menu.container
-	div.row
-		div.sidebar.col-2
-			- if @categories.any?
-				- @categories.each do |category|
-					= link_to category.name, category_path(category)
-					br
-					br
-			- else
-				p No category yet. 
-		div.content.col-9
-			div.container-fluid
-				h3 Menu
-				div.menu-content.row	
-					- if @categories.any?
-						- @categories.each do |category|
-							div.mb3.lg-mb5.col-6
-								= link_to category_path(category) do
-									div.d-flex.align-items-center.px-3.gap-3 
-										= image_tag Product.find_by(category_id: category.id).photos, class: 'img-thumbnail'
-										p = category.name
-br
+div.container
+	p.d-flex.justify-content-end = link_to 'New Category', new_category_path
+	div.menu.container-fluid
+		div.row
+			div.sidebar.col-2
+				- if @categories.any?
+					- @categories.each do |category|
+						= link_to category.name, category_path(category)
+						br
+						br
+				- else
+					p No category yet. 
+			div.content.col-10
+				div.container-fluid
+					h3 Menu
+					div.menu-content.row	
+						- if @categories.any?
+							- @categories.each do |category|
+								div.mb3.lg-mb5.col-6
+									= link_to category_path(category) do
+										div.d-flex.align-items-center.px-3.gap-3 
+											= image_tag Product.find_by(category_id: category.id).photos, class: 'img-thumbnail'
+											p = category.name
 	br
-		
+		br
+			
 
 = render partial: 'carts/cart_footer'

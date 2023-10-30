@@ -1,0 +1,18 @@
+div.container
+	p.d-flex.justify-content-end = link_to 'New Variant', new_variant_path
+	div#cart-container.container-fluid
+		- if @variants.any?
+			<table width="100%">
+		        thead
+        			tr.text-center
+		                td Name
+		                td Selection
+		                td Applied products     			
+			- @variants.each do |variant|
+				tbody
+					tr.text-center
+						td = variant.name
+						td = variant.selection
+						td no items linked
+		- else
+			p No variant yet

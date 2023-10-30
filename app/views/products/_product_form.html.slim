@@ -22,11 +22,23 @@
 	div.container-fluid.border.rounded.mt-3.pt-2
 		div.row.g-3
 			strong Variant
-		div.row.g-3
-			div.col-2
-				p Variant 1 
-			div.col-10
-
+		div.container-fluid
+		= f.fields_for :product_variant do |ff|
+			div.row.g-3
+				div.col-2
+					p Variant
+				div.col-10
+					p Price
+			div.row.g-3
+				div.col-2
+					p Medium
+				div.col-10
+					= ff.number_field :price, step: 0.01, class: 'form-control'
+			div.row.g-3
+				div.col-2
+					p Large
+				div.col-10
+					= ff.number_field :price, step: 0.01, class: 'form-control'
 	div.row.mt-3
 		div.text-center
 			- if @product.new_record?

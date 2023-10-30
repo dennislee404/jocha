@@ -12,7 +12,11 @@ div.container
 				tbody
 					tr.text-center
 						td = variant.name
-						td = variant.selection
+						- if variant.variant_items.any?
+							td 
+								- variant.variant_items.each do |v|
+									= v.name
+									
 						td no items linked
 		- else
 			p No variant yet

@@ -1,19 +1,12 @@
 class VariantsController < ApplicationController
 	before_action :set_variant, only: [:show, :edit, :update, :destroy]
 	def index
-		@variants = []
-		Variant.all.each do |variant|
-			if @variants.include? variant
-			else 
-				@variants << variant
-			end
-		end 
-		@selections = []
-		binding.break
+		@variants = Variant.all
 	end	
 
 	def new
 		@variant = Variant.new
+		@variant_item = VariantItem.new
 	end
 
 	def create

@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 	def new
 		@category = Category.find_by(id: params[:category_id])
 		@product = Product.new
+		@product_variant = ProductVariant.new
 	end
 
 	def create

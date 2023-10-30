@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products
-  resources :variants
+  resources :variants do 
+    resources :variant_items
+  end
+  resources :product_variants, only: [:new,:create]
   resource :cart, path:'cart', only: [:show, :destroy]
   resources :cart_items, path:'items', only: [:create, :update, :destroy]
 

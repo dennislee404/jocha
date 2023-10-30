@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-		@category = Category.find_by(id: params[:product][:category_id])
+		@category = Category.find_by(name: params[:product][:category])
 		@product = @category.products.create(product_params)
 
 		if @product.save
@@ -34,8 +34,9 @@ class ProductsController < ApplicationController
 	end
 
 	def destroy
-		@category = Category.find(params[:category_id])
+		@category = Category.find_by(id: @product.category_id)
 		@product.destroy
+		
 
 		redirect_to category_path(@category)
 	end

@@ -1,16 +1,30 @@
 = form_with model: @product do |f|
-	= f.label :name, "Name : "
-	= f.text_field :name
-	br
-	= f.label :price, "Price : "
-	= f.number_field :price, step: 0.01
-	br
-	= f.label :photos
-	= f.file_field :photos
-	br
-	= f.hidden_field :category_id, value: @category.id
-	
-	- if @product.new_record?
-		= f.submit 'Create'
-	- else
-		= f.submit 'Update'
+	div.row.g-3
+		div.col-2.text-end
+			= f.label :name, "Name", class: 'col-form-label'
+		div.col-10
+			= f.text_field :name, class: 'form-control'
+	div.row.g-3
+		div.col-2.text-end
+			= f.label :category, "Category", class: 'col-form-label'
+		div.col-10
+			= f.text_field :category, value: @category.name , class: 'form-control'
+	div.row.g-3
+		div.col-2.text-end
+			= f.label :price, "Price", class: 'col-form-label'
+		div.col-10
+			= f.number_field :price, step: 0.01, class: 'form-control'
+	div.row.g-3
+		div.col-2.text-end
+			= f.label :photos, class: 'col-form-label'
+		div.col-10
+			= f.file_field :photos, class: 'form-control'
+	div.row
+		div.col-2.text-end
+			- if @product.new_record?
+				= f.submit 'Create', class:"btn btn-success"
+			- else
+				= f.submit 'Update', class:"btn btn-success"
+
+
+

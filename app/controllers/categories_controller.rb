@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 		@category = Category.create(category_params)
 
 		if @category.save
-			redirect_to menu_path_url
+			redirect_to categories_path
 		else
 			render :new
 		end
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
 
 	def update
 		if @category.update(category_params)
-			redirect_to menu_path_url
+			redirect_to categories_path
 		else
 			render :edit 
 		end
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
 	def destroy
 		@category.destroy
 
-		redirect_to menu_path_url
+		redirect_to categories_path
 	end
 
 	private

@@ -46,6 +46,6 @@ class VariantsController < ApplicationController
 		end
 
 		def variant_params
-			params.require(:variant).permit(:name, :selection)
+			params.require(:variant).permit(:name)
 		end
 end

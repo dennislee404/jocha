@@ -1,0 +1,22 @@
+div.container
+	p.d-flex.justify-content-end = link_to 'New Option', new_option_path
+	div#cart-container.container-fluid
+		- if @options.any?
+			<table width="100%">
+		        thead
+        			tr.text-center
+		                td Name
+		                td Selection
+		                td Applied products     			
+			- @options.each do |option|
+				tbody
+					tr.text-center
+						td = option.name
+						- if option.option_items.any?
+							td 
+								- option.option_items.each do |v|
+									= v.name
+									
+						td no items linked
+		- else
+			p No option yet

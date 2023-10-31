@@ -1,27 +1,36 @@
 div.container
-	- if @product.photos.attached?
-		= image_tag @product.photos, height:200
-	br
-	= @product.name
-	br
-	div.d-flex.gap-3
-		-if @product.product_variants.any?
-			- @product.product_variants.each do |variant|
-				div.btn.btn-success
-					= variant.variant_item.name
-					br
-					= number_to_currency(variant.price, unit:"RM ")
-					br
-		- else
-			div.btn.btn-success
-				= number_to_currency(@product.price, unit:"RM ")
+	div.row
+		div.col-4.text-end
+			- if @product.photos.attached?
+				= image_tag @product.photos, height:400
+		div.col-8
+			strong = @product.name
+			div.mt-2
+				-if @product.product_variants.any?
+					- @product.product_variants.each do |variant|
+						div.form-check.d-flex.gap-2
+							= radio_button_tag 'variant', "#{variant.variant_item.id}", class: "form-check-input"
+							= label_tag "#{variant.variant_item.id}", "#{variant.variant_item.name} #{number_to_currency(variant.price, unit:"RM ")}", class: "form-check-label"
 
-	br
-
-	= button_to 'Add to cart', cart_items_path(id: @product.id), class: "btn btn-success"
-	br
+				-if @product.product_options.any?
+					- @product.product_options.each do |option|
+						= Option.find(option.option_id).name
+						br
+						- Option.find(option.option_id).option_items.each do |item|
+							div.form-check.d-flex.gap-2
+								= radio_button_tag 'option', "#{item.id}", class: "form-check-input	"
+								= label_tag "#{item.id}", "#{item.name}", class: "form-check-label"
+							
+			= button_to 'Add to cart', cart_items_path(id: @product.id), class: "btn btn-success"
+			br
 		
 	= link_to 'Edit', edit_product_path(@product)
 	= link_to 'Delete', product_path(@product), data: {turbo_method: :delete, turbo_confirm: "Confirm delete product?"}
 
 = render partial: 'carts/cart_footer'
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Default radio
+  </label>
+</div>

@@ -4,7 +4,7 @@ tbody
         	i.fas.fa-trash-alt
         td.py-3 = image_tag cart_item.item.photos
         td = cart_item.item.name
-        td = number_to_currency(cart_item.item.price)
+        td = number_to_currency(cart_item.item.price, unit:"RM ")
         td = form_tag(cart_item_path(id: cart_item.id), method: :patch) do
         	= select_tag :quantity, options_for_select(1..99, "#{cart_item.quantity}"), { onchange: 'this.form.submit()' }
-        td = number_to_currency(cart_item.item.price * cart_item.quantity)
+        td = number_to_currency(cart_item.item.price * cart_item.quantity, unit:"RM ")

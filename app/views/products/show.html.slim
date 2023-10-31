@@ -4,18 +4,21 @@ div.container
 	br
 	= @product.name
 	br
-	span RM 
-	= @product.price
-	br
+	div.d-flex.gap-3
+		-if @product.product_variants.any?
+			- @product.product_variants.each do |variant|
+				div.btn.btn-success
+					= variant.variant_item.name
+					br
+					= number_to_currency(variant.price, unit:"RM ")
+					br
+		- else
+			div.btn.btn-success
+				= number_to_currency(@product.price, unit:"RM ")
+
 	br
 
-	span Size options: 
-	br
-	= link_to 'medium'
-	br
-	= link_to 'large'
-
-	= button_to 'Add to cart', cart_items_path(id: @product.id)
+	= button_to 'Add to cart', cart_items_path(id: @product.id), class: "btn btn-success"
 	br
 		
 	= link_to 'Edit', edit_product_path(@product)

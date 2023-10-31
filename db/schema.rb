@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_30_082452) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_30_162337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,12 +99,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_30_082452) do
 
   create_table "product_variants", force: :cascade do |t|
     t.bigint "product_id", null: false
-    t.bigint "variant_id", null: false
     t.decimal "price", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "variant_item_id"
     t.index ["product_id"], name: "index_product_variants_on_product_id"
-    t.index ["variant_id"], name: "index_product_variants_on_variant_id"
+    t.index ["variant_item_id"], name: "index_product_variants_on_variant_item_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -154,7 +154,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_30_082452) do
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "product_variants", "products"
-  add_foreign_key "product_variants", "variants"
   add_foreign_key "products", "categories"
   add_foreign_key "variant_items", "variants"
 end

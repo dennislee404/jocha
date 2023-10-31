@@ -41,7 +41,7 @@ class VariantsController < ApplicationController
 	end
 
 	private
-		def set_category
+		def set_variant
 			@variant = Variant.find(params[:id])
 		end
 

@@ -41,7 +41,7 @@ class OptionsController < ApplicationController
 	end
 
 	private
-		def set_category
+		def set_option
 			@option = Option.find(params[:id])
 		end
 

@@ -6,14 +6,18 @@ Rails.application.routes.draw do
   root "pages#index"
 
   resources :categories
-  resources :products
+  resources :products do 
+    resources :product_variants
+  end
+  
   resources :variants do 
     resources :variant_items
   end
+
   resources :options do 
     resources :option_items
   end
-  resources :product_variants, only: [:new,:create]
+
   resource :cart, path:'cart', only: [:show, :destroy]
   resources :cart_items, path:'items', only: [:create, :update, :destroy]
 

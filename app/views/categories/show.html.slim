@@ -1,38 +1,31 @@
-div.container
-	p.d-flex.justify-content-end = link_to 'New Category', new_category_path
-	div.menu.container-fluid
+div.container.p-0
+	strong.d-flex.justify-content-end.mb-2 = link_to '+ New Category', new_category_path
+	div.container-fluid
 		div.row
-			div.sidebar.col-2
-				- if @categories.any?
-					- @categories.each do |category|
-						= link_to category.name, category_path(category)
-						br
-						br
-				- else
-					p No category yet. 
-			div.content.col-10
-				div.d-flex.justify-content-between
-					div.d-flex.gap-1
-						p = @category.name
-						= link_to edit_category_path(@category) do 
-							i.fa.fa-pen-to-square
-						= link_to category_path(@category), data: {turbo_method: :delete, turbo_confirm: "Confirm delete category?"} do 
-							i.fa.fa-trash-can
-					p = link_to 'New Product', new_product_path(category_id: @category.id)
-				div.position-relative
-					div.row.row-cols-auto.px-2
-						- if @category.products.any?
-							- @category.products.each do |product|
-								div.col-md-4
-									div.card.h-100
-										= link_to product_path(product) do
-											div.card-img-top.img-fluid
+			= render partial: 'category_sidebar' 
+			div.content.col-10.p-2
+				div.container-fluid
+					div.d-flex.justify-content-between
+						div.d-flex.gap-1.align-items-center
+							h3 = @category.name
+							= link_to edit_category_path(@category) do 
+								i.fa.fa-pen-to-square
+							= link_to category_path(@category), data: {turbo_method: :delete, turbo_confirm: "Confirm delete category?"} do 
+								i.fa.fa-trash-can
+						strong.align-items-center = link_to '+ New Product', new_product_path(category_id: @category.id)
+					div
+						div.row
+							- if @category.products.any?
+								- @category.products.each do |product|
+									div.col-md-4.mb-3
+										div.card.h-100
+											= link_to product_path(product) do
 												- if product.photos.attached?
-													= image_tag product.photos, width: 300
+													= image_tag product.photos, class: 'img-fluid'
 												- else
 													p No photos found
-											div.card-body
-												h6.card-title = product.name
+												div.card-body
+													h6.card-title = product.name
 br
 	br
 = render partial: 'carts/cart_footer'

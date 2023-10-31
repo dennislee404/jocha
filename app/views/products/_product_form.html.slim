@@ -22,29 +22,18 @@
 	div.container-fluid.border.rounded.mt-3.pt-2
 		div.row.g-3
 			strong Variant
-		div.container-fluid
-		= f.fields_for :product_variant do |ff|
-			div.row.g-3
-				div.col-2
-					p Variant
-				div.col-10
-					p Price
-			div.row.g-3
-				div.col-2
-					p Medium
-				div.col-10
-					= ff.number_field :price, step: 0.01, class: 'form-control'
-			div.row.g-3
-				div.col-2
-					p Large
-				div.col-10
-					= ff.number_field :price, step: 0.01, class: 'form-control'
+		div.row.g-3
+			div.col-2.text-end
+				p.col-form-label Variant 1
+			div.col-10	
+				= select_tag "variant", options_from_collection_for_select(Variant.all, "id", "name"), prompt: "No value", class:"form-select"
+
+		= render "product_variant_form", f:f
+
+			
 	div.row.mt-3
 		div.text-center
 			- if @product.new_record?
 				= f.submit 'Create', class:"btn btn-success"
 			- else
 				= f.submit 'Update', class:"btn btn-success"
-
-
-

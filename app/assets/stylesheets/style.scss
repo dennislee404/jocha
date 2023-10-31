@@ -8,20 +8,12 @@ a {
 	positon: fixed; 
 }
 
-.menu {
-	display: flex;
-	gap: 20px;
-}
-
 .sidebar {
 	background: grey;
-	padding: 10px;
 }
 
 .content {
 	background: lightgreen;
-	width: 80%;
-	padding: 10px;
 }
 
 .nav-item {
@@ -43,10 +35,9 @@ a {
 
 .join-now {
 	background-color: black;
-}
-
-.join-now .nav-link {
-	color: white !important;
+	.nav-link {
+		color: white !important;	
+	}
 }
 
 .join-now:hover {
@@ -77,28 +68,30 @@ a {
 
 #cart-container {
 	overflow-x: auto;
-}
-
-#cart-container table {
-	border-collapse: collapse;
-	width: 100%;
-	table-layout: fixed;
-	white-space: nowrap;
-}
-
-#cart-container table thead{
-	font-weight: 700;
-}
-
-#cart-container table thead td{
-	background-color: orange;
-	color: white;
-	border: none;
-	padding: 6px 0;
-}
-
-#cart-container table td{
-	border: 1px solid;
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		table-layout: fixed;
+		white-space: nowrap;
+		thead {
+			font-weight: 700;
+			td {
+				background-color: orange;
+				color: white;
+				border: none;
+				padding: 6px 0;
+			}
+		}
+		td {
+			border: 1px solid;
+			img {
+				border-radius: 100px;
+				object-fit: cover;
+				height: 100px;
+				width: 100px;				
+			}
+		}
+	}
 }
 
 #cart-container table td:nth-child(1),
@@ -125,11 +118,4 @@ a {
   text-align:center;
   min-width:2em;
   font-weight:bold;
-}
-
-td img {
-	border-radius: 100px;
-	object-fit: cover;
-	height: 100px;
-	width: 100px;
 }

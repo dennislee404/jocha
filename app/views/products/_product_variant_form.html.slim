@@ -1,0 +1,5 @@
+= f.fields_for :product_variant do |ff|
+			= ff.label :price, "Medium", class: 'col-form-label'
+			= ff.number_field :price, step: 0.01, class: 'form-control'
+			= ff.label :price, "Large", class: 'col-form-label'
+			= ff.number_field :price, step: 0.01, class: 'form-control'

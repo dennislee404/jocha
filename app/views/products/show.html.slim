@@ -1,8 +1,8 @@
 div.container
 	div.row
-		div.col-4.text-end
+		div.col-4
 			- if @product.photos.attached?
-				= image_tag @product.photos, height:400
+				= image_tag @product.photos, height:400, class:"img-fluid"
 		div.col-8
 			strong = @product.name
 			div.mt-2
@@ -11,15 +11,20 @@ div.container
 						div.form-check.d-flex.gap-2
 							= radio_button_tag 'variant', "#{variant.variant_item.id}", class: "form-check-input"
 							= label_tag "#{variant.variant_item.id}", "#{variant.variant_item.name} #{number_to_currency(variant.price, unit:"RM ")}", class: "form-check-label"
-
-				-if @product.product_options.any?
-					- @product.product_options.each do |option|
-						= Option.find(option.option_id).name
-						br
-						- Option.find(option.option_id).option_items.each do |item|
-							div.form-check.d-flex.gap-2
-								= radio_button_tag 'option', "#{item.id}", class: "form-check-input	"
-								= label_tag "#{item.id}", "#{item.name}", class: "form-check-label"
+				div.container.border.border-success
+					div.row
+						-if @product.product_options.any?
+							- @product.product_options.each do |option|
+								= Option.find(option.option_id).name
+								div.row
+									- Option.find(option.option_id).option_items.each do |item|
+										div.d-flex.justify-content-between
+											div.form-check.d-flex.gap-2
+												= radio_button_tag "option_'#{option.id}'", "#{item.id}", class: "form-check-input	"
+												= label_tag "#{item.id}", "#{item.name}", class: "form-check-label"
+											div
+												- if item.price != 0
+													= number_to_currency(item.price, unit:"+")
 							
 			= button_to 'Add to cart', cart_items_path(id: @product.id), class: "btn btn-success"
 			br

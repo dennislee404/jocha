@@ -1,8 +1,18 @@
 class CartItemsController < ApplicationController
 	def create
 		@item = Product.find(params[:id])
-		@cart.add(@item, @item.price)
-		redirect_back fallback_location: root_path
+		if @item.product_variants.any?
+			@item_variant = ProductVariant.find(params[:variant_item_id])
+			@cart.add(@item_variant, @item_variant.price)
+		else
+			@cart.add(@item, @item.price)
+		end
+
+		if @cart.save
+			redirect_back fallback_location: root_path
+		else
+			redirect_to	product_path(params[:id]), notice: "fail to process"
+		end
 	end
 
 	def update

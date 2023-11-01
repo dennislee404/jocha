@@ -5,26 +5,35 @@ div.container
 				= image_tag @product.photos, height:400, class:"img-fluid"
 		div.col-8
 			strong = @product.name
-			div.mt-2
+			div.mt-2.row
 				-if @product.product_variants.any?
 					- @product.product_variants.each do |variant|
-						div.form-check.d-flex.gap-2
-							= radio_button_tag 'variant', "#{variant.variant_item.id}", class: "form-check-input"
-							= label_tag "#{variant.variant_item.id}", "#{variant.variant_item.name} #{number_to_currency(variant.price, unit:"RM ")}", class: "form-check-label"
-				div.container.border.border-success
-					div.row
-						-if @product.product_options.any?
-							- @product.product_options.each do |option|
-								= Option.find(option.option_id).name
-								div.row
-									- Option.find(option.option_id).option_items.each do |item|
-										div.d-flex.justify-content-between
-											div.form-check.d-flex.gap-2
+						div.col-6
+							div.d-flex.justify-content-between
+								div.form-check.d-flex.gap-2
+									= radio_button_tag 'variant', "#{variant.variant_item.id}", class: "form-check-input", onchange: 'getSelectedVariant(this)'
+									= label_tag "#{variant.variant_item.id}", "#{variant.variant_item.name}", class: "form-check-label"
+								div
+									= number_to_currency(variant.price, unit:"RM ")
+			div.mt-2
+				-if @product.product_options.any?
+					- @product.product_options.each do |option|
+						div.mt-2
+							= Option.find(option.option_id).name
+						div.row
+							- Option.find(option.option_id).option_items.each do |item|
+								div.col-6
+									div.d-flex.justify-content-between
+										div.form-check.d-flex.gap-2
+											- if Option.find(option.option_id).max == 1
 												= radio_button_tag "option_'#{option.id}'", "#{item.id}", class: "form-check-input	"
 												= label_tag "#{item.id}", "#{item.name}", class: "form-check-label"
-											div
-												- if item.price != 0
-													= number_to_currency(item.price, unit:"+")
+											- else
+												= check_box_tag "option_'#{option.id}'", "#{item.id}"
+												= label_tag "#{item.id}", "#{item.name}", class: "form-check-label"
+										div
+											- if item.price != 0
+												= number_to_currency(item.price, unit:"+")
 							
 			= button_to 'Add to cart', cart_items_path(id: @product.id), class: "btn btn-success"
 			br
@@ -32,10 +41,12 @@ div.container
 	= link_to 'Edit', edit_product_path(@product)
 	= link_to 'Delete', product_path(@product), data: {turbo_method: :delete, turbo_confirm: "Confirm delete product?"}
 
-= render partial: 'carts/cart_footer'
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-  <label class="form-check-label" for="flexRadioDefault1">
-    Default radio
-  </label>
-</div>
+javascript:
+
+	function getSelectedVariant(sel) {
+	  let variant = sel.selected;
+
+	  if (variant.selected) {
+	    alert(variant);
+	  }
+	 }

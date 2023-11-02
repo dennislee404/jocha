@@ -7,6 +7,10 @@ tbody
                 = image_tag cart_item.item.photos
             td
                 = cart_item.item.name
+                br
+                - if cart_item.cart_item_options.any?
+                    - cart_item.cart_item_options.each do |option|
+                        = option.option_item.name
         - else
             td.py-3
                 = image_tag cart_item.item.product.photos
@@ -14,6 +18,10 @@ tbody
                 = cart_item.item.product.name
                 br
                 = cart_item.item.variant_item.name
+                br
+                - if cart_item.cart_item_options.any?
+                    - cart_item.cart_item_options.each do |option|
+                        = option.option_item.name
         td = number_to_currency(cart_item.item.price, unit:"RM ")
         td = form_tag(cart_item_path(id: cart_item.id), method: :patch) do
         	= select_tag :quantity, options_for_select(1..99, "#{cart_item.quantity}"), { onchange: 'this.form.submit()' }

@@ -9,6 +9,9 @@ class CartItemsController < ApplicationController
 		end
 
 		if @cart.save
+
+			
+			
 			@cart_item = @cart.cart_items.where(item_id: @item.id).last
 			@ice_level = OptionItem.find(params[:option_1])
 			@sugar_level = OptionItem.find(params[:option_2])

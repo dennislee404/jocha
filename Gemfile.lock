@@ -1,10 +1,9 @@
-GIT
-  remote: https://github.com/crowdint/acts_as_shopping_cart.git
-  revision: ce656b5f0247836094acb6a857252b2c1507d061
-  branch: 0-1-x
+PATH
+  remote: C:/Users/denni/OneDrive/Desktop/Elevate/acts_as_shopping_cart
   specs:
-    acts_as_shopping_cart (0.1.6)
-      activerecord (> 3)
+    acts_as_shopping_cart (0.4.1)
+      money-rails (> 1.5)
+      rails (> 4)
 
 GEM
   remote: https://rubygems.org/
@@ -155,6 +154,15 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    monetize (1.12.0)
+      money (~> 6.12)
+    money (6.16.0)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.15.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9)
+      money (~> 6.13)
+      railties (>= 3.0)
     msgpack (1.7.2)
     net-imap (0.4.1)
       date
@@ -293,7 +301,6 @@ DEPENDENCIES
   importmap-rails
   pg
   puma (< 5.0)
-  rails (~> 7.0.8)
   sassc-rails
   selenium-webdriver
   slim-rails

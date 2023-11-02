@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
-gem "rails", "~> 7.0.8"
+  
 gem "pg"
 gem "puma", "< 5.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -18,7 +18,7 @@ gem 'bootstrap', '~> 5.3.2'
 gem "autoprefixer-rails"
 
 gem "devise"
-gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
+gem 'acts_as_shopping_cart', path: '\Users\denni\OneDrive\Desktop\Elevate\acts_as_shopping_cart'
 
 gem "image_processing", "~> 1.2"
 gem "aws-sdk-s3", "~> 1"

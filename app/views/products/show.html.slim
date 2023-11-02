@@ -31,7 +31,7 @@ div.container
 													= radio_button_tag "option_#{option.id}", "#{item.id}", class: "form-check-input	"
 													= label_tag "option_#{option.id}_#{item.id}", "#{item.name}", class: "form-check-label"
 												- else
-													= check_box_tag "option_#{option.id}", "#{item.id}"
+													= check_box_tag "option_#{option.id}[]", "#{item.id}"
 													= label_tag "#{item.id}", "#{item.name}", class: "form-check-label"
 											div
 												- if item.price != 0

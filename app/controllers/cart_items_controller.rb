@@ -9,14 +9,24 @@ class CartItemsController < ApplicationController
 		end
 
 		if @cart.save
-
-			
-			
+			# get cart_item	
 			@cart_item = @cart.cart_items.where(item_id: @item.id).last
-			@ice_level = OptionItem.find(params[:option_1])
-			@sugar_level = OptionItem.find(params[:option_2])
-			@cart_item_option = CartItemOption.create(cart_item_id: @cart_item.id, option_item_id: @ice_level.id)
-			@cart_item_option = CartItemOption.create(cart_item: @cart_item, option_item: @sugar_level)
+
+			#add cart_item_option
+			@cart_item_option = CartItemOption.create(cart_item_id: @cart_item.id, option_item_id: params[:option_1].to_i)
+			@cart_item_option = CartItemOption.create(cart_item_id: @cart_item.id, option_item_id: params[:option_2].to_i)
+			params[:option_3].each do |opt|
+				@cart_item_option = CartItemOption.create(cart_item_id: @cart_item.id, option_item_id: opt.to_i)
+			end
+
+			#get cart_item_option prices
+			@cart_item_price = @cart_item.price
+			@cart_item.cart_item_options.each do |opt|
+				@cart_item_price += opt.option_item.price 
+			end
+
+			#update cart_item price
+			@cart_item.update(price: @cart_item_price)
 			redirect_back fallback_location: root_path
 		else
 			redirect_to	product_path(params[:id]), notice: "fail to process"

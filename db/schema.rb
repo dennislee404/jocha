@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_31_114355) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_01_114444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_31_114355) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "cart_item_options", force: :cascade do |t|
+    t.bigint "cart_item_id"
+    t.bigint "option_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_item_id"], name: "index_cart_item_options_on_cart_item_id"
+    t.index ["option_item_id"], name: "index_cart_item_options_on_option_item_id"
   end
 
   create_table "cart_items", force: :cascade do |t|
@@ -166,6 +175,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_31_114355) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_item_options", "cart_items"
+  add_foreign_key "cart_item_options", "option_items"
   add_foreign_key "option_items", "options"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"

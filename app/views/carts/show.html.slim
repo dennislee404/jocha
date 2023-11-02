@@ -17,14 +17,14 @@ section#cart-bottom.container
         div
             div.d-flex.justify-content-between.px-5
                 h6 Subtotal
-                p = number_to_currency @cart.subtotal
+                p = number_to_currency(@cart.subtotal, unit: 'RM ')
             div.d-flex.justify-content-between.px-5
                 h6 Taxes
-                p = number_to_currency @cart.taxes
+                p = number_to_currency(@cart.taxes, unit: 'RM ')
             hr.second-hr
             div.d-flex.justify-content-between.px-5
                 h6 Total
-                p = number_to_currency @cart.total
+                p = number_to_currency(@cart.total, unit: 'RM ')
             = button_to 'PROCEED TO CHECKOUT'
 
 

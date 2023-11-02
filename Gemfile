@@ -18,7 +18,7 @@ gem 'bootstrap', '~> 5.3.2'
 gem "autoprefixer-rails"
 
 gem "devise"
-gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
+gem 'acts_as_shopping_cart', github: 'dennislee404/acts_as_shopping_cart'
 
 gem "image_processing", "~> 1.2"
 gem "aws-sdk-s3", "~> 1"

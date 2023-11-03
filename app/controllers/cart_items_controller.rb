@@ -11,7 +11,8 @@ class CartItemsController < ApplicationController
 		if @cart.save
 			# get cart_item	
 			@cart_item = @cart.cart_items.where(item_id: @item.id).last
-
+			if @cart_item.item_type
+			if params[:option_1].any?
 			#add cart_item_option
 			@cart_item_option = CartItemOption.create(cart_item_id: @cart_item.id, option_item_id: params[:option_1].to_i)
 			@cart_item_option = CartItemOption.create(cart_item_id: @cart_item.id, option_item_id: params[:option_2].to_i)

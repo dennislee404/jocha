@@ -6,24 +6,35 @@ tbody
             td.py-3 
                 = image_tag cart_item.item.photos
             td
-                = cart_item.item.name
-                br
-                - if cart_item.cart_item_options.any?
-                    - cart_item.cart_item_options.each do |option|
-                        = option.option_item.name
-        - else
+                div.container.text-start
+                    div.d-flex.justify-content-between
+                        strong = cart_item.item.name
+                        strong = number_to_currency(cart_item.item.price, unit: "RM ")
+                    - if cart_item.cart_item_options.any?
+                        - cart_item.cart_item_options.each do |option|
+                            div.d-flex.justify-content-between
+                                div = option.option_item.name
+                                - if option.option_item.price != 0
+                                    div = number_to_currency(option.option_item.price, unit: "+ ")
+        - else          
             td.py-3
                 = image_tag cart_item.item.product.photos
-            td 
-                = cart_item.item.product.name
-                br
-                = cart_item.item.variant_item.name
-                br
-                - if cart_item.cart_item_options.any?
-                    - cart_item.cart_item_options.each do |option|
-                        = option.option_item.name
-                        br
-        td = number_to_currency(cart_item.item.price, unit:"RM ")
+            td
+                div.container.text-start
+                    div.d-flex.justify-content-between
+                        div.d-flex.justify-content-center.gap-1
+                            strong = cart_item.item.product.name
+                            strong = "(#{cart_item.item.variant_item.name })"
+                        strong = number_to_currency(ProductVariant.find_by(product_id: cart_item.item.product.id, variant_item_id: cart_item.item.variant_item.id).price, unit: "RM ")
+                    - if cart_item.cart_item_options.any?
+                        - cart_item.cart_item_options.each do |option|
+                            div.d-flex.justify-content-between
+                                div = option.option_item.name
+                                - if option.option_item.price != 0
+                                    div = number_to_currency(option.option_item.price, unit: "+ ")
+        td 
+            strong = number_to_currency(cart_item.price, unit:"RM ")
         td = form_tag(cart_item_path(id: cart_item.id), method: :patch) do
         	= select_tag :quantity, options_for_select(1..99, "#{cart_item.quantity}"), { onchange: 'this.form.submit()' }
-        td = number_to_currency(cart_item.item.price * cart_item.quantity, unit:"RM ")
+        td 
+            strong = number_to_currency(cart_item.price * cart_item.quantity, unit:"RM ")

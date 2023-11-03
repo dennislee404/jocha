@@ -25,7 +25,7 @@ section#cart-bottom.container
             div.d-flex.justify-content-between.px-5
                 h6 Total
                 p = number_to_currency(@cart.total, unit: 'RM ')
-            = button_to 'PROCEED TO CHECKOUT'
+            = button_to 'PROCEED TO CHECKOUT', new_order_path, method: :get 
 
 
 

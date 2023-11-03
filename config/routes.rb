@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   resource :cart, path:'cart', only: [:show, :destroy]
   resources :cart_items, path:'items', only: [:create, :update, :destroy]
 
+  resources :orders, only: [:show, :new, :create]
+
   get "/menu", to: "pages#menu", as: "menu_path"
 end

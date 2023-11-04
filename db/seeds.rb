@@ -31,13 +31,13 @@ end
 file = File.read(Rails.root.join('db','seeds','product_variant.csv'))
 rows = CSV.parse(file, headers: true, encoding: 'utf-8')
 rows.each do |row|
-	product = Products.find_by(name: row['Product'])
-	product_variant = product.product_variants.find_or_create_by(variant_item_id: row['Variant Item'], price: row['Price'])
+	product = Product.find_by(name: row['Product'])
+	product_variant = product.product_variants.find_or_create_by(variant_item_id: VariantItem.find_by(name: row['Variant Item']).id, price: row['Price'])
 end
 
 file = File.read(Rails.root.join('db','seeds','product_option.csv'))
 rows = CSV.parse(file, headers: true, encoding: 'utf-8')
 rows.each do |row|
-	product = Products.find_by(name: row['Product'])
-	product_option = product.product_options.find_or_create_by(option_id: row['Option'])
+	product = Product.find_by(name: row['Product'])
+	product_option = product.product_options.find_or_create_by(option_id: Option.find_by(name: row['Option']).id)
 end

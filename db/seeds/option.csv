@@ -1,18 +1,18 @@
-Option,Option Item,Price
-Ice Level,Less Ice,0
-Ice Level,Normal Ice,0
-Sugar Level,No Sugar,0
-Sugar Level,Slight Sugar,0
-Sugar Level,Less Sugar,0
-Sugar Level,Normal Sugar,0
-Topping,Pearl,1.2
-Topping,Coconut Jelly,1.2
-Topping,Rainbow Jelly,1.2
-Topping,Pudding,1.2
-Topping,Grass Jelly,1.2
-Topping,Oreo,1.2
-Topping,Konjac/Bobo Jelly,1.5
-Topping,Yogurt Poppings,1.5
-Topping,Strawberry Poppings,1.5
-Topping,Brown Sugar Pearl,2
-Topping,Milk Cream Topping,2.5
+Option,Option Item,Min,Max,Stackable,Price
+Ice Level,Less Ice,1,1,FALSE,0
+Ice Level,Normal Ice,1,1,FALSE,0
+Sugar Level,No Sugar,1,1,FALSE,0
+Sugar Level,Slight Sugar,1,1,FALSE,0
+Sugar Level,Less Sugar,1,1,FALSE,0
+Sugar Level,Normal Sugar,1,1,FALSE,0
+Topping,Pearl,0,10,TRUE,1.2
+Topping,Coconut Jelly,0,10,TRUE,1.2
+Topping,Rainbow Jelly,0,10,TRUE,1.2
+Topping,Pudding,0,10,TRUE,1.2
+Topping,Grass Jelly,0,10,TRUE,1.2
+Topping,Oreo,0,10,TRUE,1.2
+Topping,Konjac/Bobo Jelly,0,10,TRUE,1.5
+Topping,Yogurt Poppings,0,10,TRUE,1.5
+Topping,Strawberry Poppings,0,10,TRUE,1.5
+Topping,Brown Sugar Pearl,0,10,TRUE,2
+Topping,Milk Cream Topping,0,10,TRUE,2.5

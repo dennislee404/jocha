@@ -20,12 +20,12 @@ div.container.p-0
 									div.col-md-4.mb-3
 										div.card.h-100
 											= link_to product_path(product) do
-												- if product.photos.attached?
-													= image_tag product.photos, class: 'img-fluid'
+												- if product.photo.attached?
+													= image_tag product.photo, class: 'img-fluid'
 												- else
-													p No photos found
+													= image_tag 'jocha logo', class: 'img-fluid'
 												div.card-body
-													h6.card-title = product.name
+													h6.card-title.text-center = product.name
 br
 	br
 = render partial: 'carts/cart_footer'

@@ -1,8 +1,10 @@
 div.container
 	div.row
 		div.col-4
-			- if @product.photos.attached?
-				= image_tag @product.photos, height:400, class:"img-fluid"
+			- if @product.photo.attached?
+				= image_tag @product.photo, class:"img-fluid"
+			- else
+				= image_tag 'jocha logo', class:"img-fluid"	
 		div.col-8
 			= form_tag cart_items_path, method: :post do
 				= hidden_field_tag 'id', @product.id

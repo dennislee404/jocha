@@ -1,6 +1,5 @@
 class OrderItem < ApplicationRecord
   belongs_to :order
-  belongs_to :product
 
   after_create :calc_price
   after_create :calc_total_price

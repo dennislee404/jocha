@@ -12,7 +12,6 @@ tbody
                 div.container.text-start
                     div.d-flex.justify-content-between
                         strong = cart_item.item.name
-                        strong = number_to_currency(cart_item.item.price, unit: "RM ")
                     - if cart_item.cart_item_options.any?
                         - cart_item.cart_item_options.each do |option|
                             div.d-flex.justify-content-between
@@ -31,7 +30,6 @@ tbody
                         div.d-flex.justify-content-center.gap-1
                             strong = cart_item.item.product.name
                             strong = "(#{cart_item.item.variant_item.name })"
-                        strong = number_to_currency(ProductVariant.find_by(product_id: cart_item.item.product.id, variant_item_id: cart_item.item.variant_item.id).price, unit: "RM ")
                     - if cart_item.cart_item_options.any?
                         - cart_item.cart_item_options.each do |option|
                             div.d-flex.justify-content-between

@@ -25,19 +25,8 @@ section#cart-bottom.container
             div.d-flex.justify-content-between.px-5
                 h6 Total
                 p = number_to_currency(@cart.total, unit: 'RM ')
-            = button_to 'PROCEED TO CHECKOUT', new_order_path, method: :get 
+            div.d-flex.justify-content-between
+                = button_to 'BACK TO MENU', categories_path, method: :get, class: "btn btn-success"
+                = button_to 'PROCEED TO CHECKOUT', new_order_path, method: :get, class: "btn btn-success" 
 
 
-
- 
-      	/ = render partial: 'cart_item', :collection => @cart.cart_items
-
-/ div
-/     span SubTotal: 
-/     = number_to_currency @cart.subtotal
-/ div
-/     span Taxes: 
-/     = number_to_currency @cart.taxes
-/ div
-/     span Total: 
-/     = number_to_currency @cart.total

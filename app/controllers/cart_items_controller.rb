@@ -48,7 +48,7 @@ class CartItemsController < ApplicationController
 
 			#update cart_item price
 			@cart_item.update(price: @cart_item_price/100)
-			redirect_back fallback_location: root_path
+			redirect_to cart_path
 		else
 			redirect_to	product_path(params[:id]), notice: "fail to process"
 		end

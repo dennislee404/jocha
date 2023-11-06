@@ -23,5 +23,5 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show, :new, :create]
 
-  get "/menu", to: "pages#menu", as: "menu_path"
+  get "/locations", to: "pages#location", as: "location"
 end

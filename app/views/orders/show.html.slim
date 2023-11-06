@@ -1,8 +1,22 @@
-div.container
-	h1 = @order.id
-	- @order.order_items.each do |order_item|
-		div.d-flex.justify-content-between
-			p = order_item.product.name
-			p = order_item.quantity
-			p = order_item.price
-			p = order_item.total_price
+h3 Thanks for your purchase
+
+section#receipt-container.container-fluid.my-5
+	section.col-md-6.offset-md-3
+		section.text-center
+		strong JOCHA
+		p B11, Ground Floor, Block B, Grand Plaza Putatan, 80000, Putatan, Sabah, Malaysia
+		hr
+		div.d-flex.justify-content-between.align-items-center
+			p Date: #{@order.created_at}
+			div
+				h3 ORDER 
+				h3 = @order.id
+	    <table width="100%">
+	        thead
+	            tr
+	                td Qty
+	                td Item
+	                td Price (MYR)
+			= render partial: 'order_item', :collection => @order.order_items          
+	    </table>
+

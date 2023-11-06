@@ -3,6 +3,19 @@ a {
 	color: black !important;
 }
 
+.home {
+	font-family: Arial,Helvetica,sans-serif;
+	.row-1 {
+		background-color: #3BC14A;
+	}
+	.row-2 {
+		background-color: #4DA167;
+	}
+	.row-3 {
+		background-color: #198754;
+	}
+}
+//#4DA167 #A2D729
 .navbar{
 	box-shadow: 0 1px 3px rgba(0,0,0,.1),0 2px 2px rgba(0,0,0,.06),0 0 2px rgba(0,0,0,.07);
 	positon: fixed; 

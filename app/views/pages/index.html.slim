@@ -1,16 +1,23 @@
-div.container-fluid.d-grid.gap-3.text-center
-	div.row
-		div.col.red
-			= image_tag 'jocha logo', height: 520
-		div.col.green
-			p 
-	div.row
-		div.col.blue
-			p red
-		div.col.red
-			= image_tag 'Oden', height: 680
-	div.row
-		div.col.green
-			= image_tag 'Thirstday', height: 700
-		div.col.blue
-			p green
+div.home.container.d-grid.gap-5.text-center
+	div.row.row-1
+		div.col.p-3
+			= image_tag 'Matcha', height: 480 
+		div.col.p-5.d-flex.flex-column.justify-content-center
+			h1 Matcha Delights
+			h3 Indulge in our latest product – a trio of tea delights you can't resist.			
+	div.row.row-2
+		div.col.p-5.d-flex.flex-column.justify-content-center
+			h1 Oden Fiesta
+			h3 Kickstart your month with a bowl of tasty oden.		 
+		div.col.p-3
+			= image_tag 'Oden', height: 600
+	div.row.row-3
+		div.col.p-3
+			= image_tag 'Thirstday', height: 600 
+		div.col.p-5.d-flex.flex-column.justify-content-center
+			h1 Thirsty for a deal?
+			h3 Get your second cup at only RM1. Here for a limited time.
+			= button_to "Order Now", categories_path, class: "sign-in"
+br
+br
+

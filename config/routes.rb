@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#index"
 
+  resources :users, only: [:show]
+   
   resources :categories
   resources :products do 
     resources :product_variants

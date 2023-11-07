@@ -5,7 +5,7 @@ div.pages.container.d-grid.gap-5.text-center
 		div.col.p-5.d-flex.flex-column.justify-content-center
 			h1 Matcha Delights
 			h3 Indulge in our latest product – a trio of tea delights you can't resist.
-			= button_to categories_path, class:"button" do
+			= button_to category_path(id: 27), class:"button", method: :get do
 				div.d-flex.gap-2.align-items-center
 					div Order Now
 					i.fa-solid.fa-circle-arrow-right			
@@ -13,7 +13,7 @@ div.pages.container.d-grid.gap-5.text-center
 		div.col.p-5.d-flex.flex-column.justify-content-center
 			h1 Oden Fiesta
 			h3 Kickstart your month with a bowl of tasty oden.
-			= button_to categories_path, class:"button" do
+			= button_to category_path(id: 26), class:"button", method: :get do
 				div.d-flex.gap-2.align-items-center
 					div Order Now
 					i.fa-solid.fa-circle-arrow-right		 
@@ -25,7 +25,7 @@ div.pages.container.d-grid.gap-5.text-center
 		div.col.p-5.d-flex.flex-column.justify-content-center
 			h1 Thirsty for a deal?
 			h3 Get your second cup at only RM1. Here for a limited time.
-			= button_to categories_path, class:"button" do
+			= button_to categories_path, class:"button", method: :get do
 				div.d-flex.gap-2.align-items-center
 					div Order Now
 					i.fa-solid.fa-circle-arrow-right

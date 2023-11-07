@@ -1,6 +1,14 @@
 tbody
     tr
-        td = order_item.quantity              
-        td = order_item.product
-        td = number_to_currency(order_item.total_price, unit: "")
+        td.ps-2 = order_item.quantity              
+        td.ps-2
+            div
+                = order_item.product
+                br
+                - if order_item.order_item_options.any?
+                    - order_item.order_item_options.each do |option|
+                        = option.name
+                        = number_to_currency(option.price, unit: " +")
+                        br
+        td.pe-2.text-end = number_to_currency(order_item.total_price, unit: "")
            

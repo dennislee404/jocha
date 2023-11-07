@@ -1,5 +1,6 @@
 class OrderItem < ApplicationRecord
   belongs_to :order
+  has_many :order_item_options, dependent: :destroy
 
   after_create :calc_price
   after_create :calc_total_price

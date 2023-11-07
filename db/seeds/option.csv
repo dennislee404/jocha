@@ -16,3 +16,21 @@ Topping,Yogurt Poppings,0,10,TRUE,1.5
 Topping,Strawberry Poppings,0,10,TRUE,1.5
 Topping,Brown Sugar Pearl,0,10,TRUE,2
 Topping,Milk Cream Topping,0,10,TRUE,2.5
+Waffle Flavour,Chocolate,1,1,FALSE,0
+Waffle Flavour,Peanut,1,1,FALSE,0
+Waffle Flavour,Margarine,1,1,FALSE,0
+Waffle Flavour,Strawberry,1,1,FALSE,0
+Waffle Flavour,Kaya,1,1,FALSE,0
+Waffle Flavour,Plain,1,1,FALSE,0
+Oden Options,Noodle (1pc),0,12,TRUE,1.5
+Oden Options,Fish Ball (3pcs),0,12,TRUE,1.5
+Oden Options,Fried Fish Ball (3pcs),0,12,TRUE,1.5
+Oden Options,Crab Nugget (2pcs),0,12,TRUE,1.5
+Oden Options,Sausage (2pcs),0,12,TRUE,1.5
+Oden Options,Cheese Tofu (2pcs),0,12,TRUE,2
+Oden Options,Fish Sandwich (2pcs),0,12,TRUE,2
+Oden Options,Seafood Tofu (2pcs),0,12,TRUE,2
+Oden Options,Lobster Ball (2pcs),0,12,TRUE,2
+Oden Options,Sotong Ball (2pcs),0,12,TRUE,2
+Oden Options,Prawn Ball (2pcs),0,12,TRUE,2
+Oden Options,Fish Cake (1pc),0,12,TRUE,2

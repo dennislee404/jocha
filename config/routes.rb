@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resource :cart, path:'cart', only: [:show, :destroy]
   resources :cart_items, path:'items', only: [:create, :update, :destroy]
 
-  resources :orders, only: [:show, :new, :create]
+  resources :orders, only: [:show, :new, :create] do 
+    resources :order_items, only: [:new, :create]
+  end
 
   get "/locations", to: "pages#location", as: "location"
 end

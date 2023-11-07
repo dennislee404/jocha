@@ -1,34 +1,38 @@
+div.bg-success
 div.pages.container.d-grid.gap-5.text-center
-	div.row.row-1
+	div.row
 		div.col.p-3
-			= image_tag 'Matcha', height: 480 
-		div.col.p-5.d-flex.flex-column.justify-content-center
-			h1 Matcha Delights
-			h3 Indulge in our latest product – a trio of tea delights you can't resist.
-			= button_to category_path(id: 27), class:"button", method: :get do
-				div.d-flex.gap-2.align-items-center
-					div Order Now
-					i.fa-solid.fa-circle-arrow-right			
-	div.row.row-2
-		div.col.p-5.d-flex.flex-column.justify-content-center
-			h1 Oden Fiesta
-			h3 Kickstart your month with a bowl of tasty oden.
-			= button_to category_path(id: 26), class:"button", method: :get do
-				div.d-flex.gap-2.align-items-center
-					div Order Now
-					i.fa-solid.fa-circle-arrow-right		 
+			= image_tag 'Matcha', height: 480
+		div.col.p-3.kelly-green
+			div.container.d-flex.flex-column.justify-content-center.kelly
+				h1 Matcha Delights
+				h3 Indulge in our latest product – a trio of tea delights you can't resist.
+				= button_to category_path(id: 27), class:"button", method: :get do
+					div.d-flex.gap-2.align-items-center
+						div Order Now
+						i.fa-solid.fa-circle-arrow-right			
+	div.row
+		div.col.p-3.kelly-green
+			div.container.d-flex.flex-column.justify-content-center.kelly
+				h1 Oden Fiesta
+				h3 Kickstart your month with a bowl of tasty oden.
+				= button_to category_path(id: 26), class:"button", method: :get do
+					div.d-flex.gap-2.align-items-center
+						div Order Now
+						i.fa-solid.fa-circle-arrow-right		 
 		div.col.p-3
 			= image_tag 'Oden', height: 600
-	div.row.row-3
+	div.row
 		div.col.p-3
-			= image_tag 'Thirstday', height: 600 
-		div.col.p-5.d-flex.flex-column.justify-content-center
-			h1 Thirsty for a deal?
-			h3 Get your second cup at only RM1. Here for a limited time.
-			= button_to categories_path, class:"button", method: :get do
-				div.d-flex.gap-2.align-items-center
-					div Order Now
-					i.fa-solid.fa-circle-arrow-right
+			= image_tag 'Thirstday', height: 600
+		div.col.p-3.kelly-green	
+			div.container.d-flex.flex-column.justify-content-center.kelly
+				h1 Thirsty for a deal?
+				h3 Get your second cup at only RM1. Here for a limited time.
+				= button_to categories_path, class:"button", method: :get do
+					div.d-flex.gap-2.align-items-center
+						div Order Now
+						i.fa-solid.fa-circle-arrow-right
 br
 br
 

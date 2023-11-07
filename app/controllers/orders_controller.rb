@@ -4,8 +4,12 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		@order = Order.create(status: 1)
-
+		if user_signed_in?
+			@order = current_user.orders.create(status: 1)
+		else
+			@order = Order.create(status: 1)
+		end
+		
 		if @order.save
 			@cart.cart_items.each do |cart_item|
 				if cart_item.item_type == "Product"

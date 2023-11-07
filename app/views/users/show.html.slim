@@ -1,3 +1,7 @@
 div.container
 	div.row
 		strong = @user.email
+	div.row
+		- if @user.orders.any?
+			- @user.orders.each do |order|
+				p = number_to_currency(order.total_price, unit: "RM ")

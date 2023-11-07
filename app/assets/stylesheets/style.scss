@@ -3,18 +3,48 @@ a {
 	color: black !important;
 }
 
-.home {
+.pages {
 	font-family: Arial,Helvetica,sans-serif;
 	.row-1 {
 		background-color: #3BC14A;
+		.button {
+			padding: 8px 20px 8px 20px;
+			border : 1px solid white;
+			border-radius: 40px;	
+			background-color: #3BC14A;
+			color: white;			
+		}
 	}
 	.row-2 {
 		background-color: #4DA167;
+		.button {
+			padding: 8px 20px 8px 20px;
+			border : 1px solid white;
+			border-radius: 40px;	
+			background-color: #4DA167;
+			color: white;
+		}	
 	}
 	.row-3 {
 		background-color: #198754;
+		.button {
+			padding: 8px 20px 8px 20px;
+			border : 1px solid white;
+			border-radius: 40px;	
+			background-color: #198754;
+			color: white;
+		}
 	}
 }
+
+.button {
+	padding: 8px 20px 8px 20px;
+	border : 1px solid white;
+	border-radius: 40px;	
+	background-color: #198754;
+	color: white;
+}
+
 //#4DA167 #A2D729
 .navbar{
 	box-shadow: 0 1px 3px rgba(0,0,0,.1),0 2px 2px rgba(0,0,0,.06),0 0 2px rgba(0,0,0,.07);
@@ -22,11 +52,11 @@ a {
 }
 
 .sidebar {
-	background: grey;
+	background: #D5BF86;
 }
 
 .content {
-	background: lightgreen;
+	background: #4DA167;
 }
 
 .nav-item {
@@ -149,4 +179,23 @@ a {
   text-align:center;
   min-width:2em;
   font-weight:bold;
+}
+
+.background {
+	background-image: url("Putatan.jpeg");
+	background-size: cover;
+	height: 65vh;
+}
+
+.location-content {
+	position: absolute;
+	top: 45%;
+	left: 11%;
+	z-index: 2;
+	width: 35%;
+	background-color: #ffffff10;
+	backdrop-filter: blur(15px);
+	color: #fff;
+	font-weight: bold;
+	border: 15px
 }

@@ -2,7 +2,7 @@
 lock '~> 3.18.0'
 
 # Change these
-set :repo_url,        'git@github.com:dennislee404/airbnb-clone.git'
+set :repo_url,        'git@github.com:dennislee404/jocha.git'
 set :user,            'deploy'
 
 # Don't change these unless you know what you're doing

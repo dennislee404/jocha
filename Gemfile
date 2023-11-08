@@ -16,6 +16,8 @@ gem "sassc-rails"
 gem "slim-rails"
 gem 'bootstrap', '~> 5.3.2'
 gem "autoprefixer-rails"
+gem "braintree"
+gem "gon", "~> 5.1.2"
 
 gem "devise"
 gem 'acts_as_shopping_cart', github: 'dennislee404/acts_as_shopping_cart'

@@ -17,7 +17,7 @@ div.container.p-0
 											- if Product.find_by(category_id: category.id).photo.any?
 												= image_tag Product.find_by(category_id: category.id).photo, class: 'img-thumbnail'
 											- else
-												= image_tag 'jocha logo', class: 'img-thumbnail'
+												= image_tag 'jocha logo.jpg', class: 'img-thumbnail'
 											p = category.name
 	br
 		br

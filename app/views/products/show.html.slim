@@ -4,7 +4,7 @@ div.container
 			- if @product.photo.attached?
 				= image_tag @product.photo, class:"img-fluid"
 			- else
-				= image_tag 'jocha logo', class:"img-fluid"	
+				= image_tag 'jocha logo.jpg', class:"img-fluid"	
 		div.col-8
 			= form_tag cart_items_path, method: :post do
 				= hidden_field_tag 'id', @product.id

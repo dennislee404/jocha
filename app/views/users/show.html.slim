@@ -1,7 +1,26 @@
 div.container
 	div.row
-		strong = "name : #{@user.email}"
-	div.row
-		- if @user.orders.any?
-			- @user.orders.each do |order|
-				p = number_to_currency(order.total_price, unit: "RM ")
+		div.col-md-6.offset-md-3.border.border-success.border-5.rounded.kelly
+			div.mb-3
+				<label class="form-label">Name</label>
+				<input class="form-control" type="text" value="#{@user.name} "aria-label="Disabled input example" disabled readonly>
+			div.mb-3
+				<label class="form-label">Email address</label>
+				<input class="form-control" type="text" value="#{@user.email} "aria-label="Disabled input example" disabled readonly>
+			div.mb-3
+				<label class="form-label">Phone Number</label>
+				<input class="form-control" type="text" value="#{@user.phone} "aria-label="Disabled input example" disabled readonly>
+			div.mb-3
+				<label class="form-label">Gender (optional)</label>
+				<input class="form-control" type="text" value="#{@user.gender} "aria-label="Disabled input example" disabled readonly>
+			div.mb-3
+				<label class="form-label">Date of Birth (optional)</label>
+				<input class="form-control" type="text" value="#{@user.dob} "aria-label="Disabled input example" disabled readonly>
+			div.mb-3
+				<label class="form-label">Address (optional)</label>
+				<input class="form-control" type="text" value="#{@user.address} "aria-label="Disabled input example" disabled readonly>
+			div.mb-3
+				<label class="form-label">Points</label>
+				<input class="form-control" type="text" value="#{@user.points} "aria-label="Disabled input example" disabled readonly>
+			div.mb-3.text-end 
+				= button_to 'Update Profile', edit_user_path(current_user), method: :get, class: "btn btn-success"

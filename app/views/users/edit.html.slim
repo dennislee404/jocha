@@ -1,0 +1,27 @@
+div.container
+	div.row
+		div.col-md-6.offset-md-3.border.border-success.border-5.rounded.kelly
+			= form_with model: @user do |f|
+				div.mb-3
+					= f.label :name, "Name", class: "form-label"
+					= f.text_field :name, class: "form-control", value: "#{@user.name}"
+				div.mb-3
+					<label class="form-label">Email</label>
+					<input class="form-control" type="text" value="#{@user.email}" aria-label="Disabled input example" disabled readonly>
+				div.mb-3
+					= f.label :name, "Phone Number", class: "form-label"
+					= f.text_field :phone, class: "form-control", value: "#{@user.phone}"
+				div.mb-3
+					= f.label :name, "Gender (optional)", class: "form-label"
+					= f.text_field :gender, class: "form-control", value: "#{@user.gender}"
+				div.mb-3
+					= f.label :dob, "Date of Birth (optional)", class: "form-label"
+					= f.date_field :dob, class: "form-control", value: "#{@user.dob}"
+				div.mb-3
+					= f.label :address, "Address (optional)", class: "form-label"
+					= f.text_field :address, class: "form-control", value: "#{@user.address}"
+				div.mb-3
+					<label class="form-label">Points</label>
+					<input class="form-control" type="text" value="#{@user.points}" aria-label="Disabled input example" disabled readonly>
+				div.mb-3.text-end
+					= f.submit 'Update', class:"btn btn-success"

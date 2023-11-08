@@ -9,6 +9,7 @@ div.container
 			= form_tag cart_items_path, method: :post do
 				= hidden_field_tag 'id', @product.id
 				div.d-flex.gap-1.align-items-center
+					strong = link_to "#{@product.category.name} / ", category_path(id: @product.category.id)
 					strong = @product.name
 					- if user_signed_in?
 						- if current_user.is_admin?(current_user)

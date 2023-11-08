@@ -1,6 +1,6 @@
 div.container
 	div.row
-		strong = @user.email
+		strong = "name : #{@user.email}"
 	div.row
 		- if @user.orders.any?
 			- @user.orders.each do |order|

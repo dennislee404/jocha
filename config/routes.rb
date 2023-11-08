@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   end
 
   get "/locations", to: "pages#location", as: "location"
+  get "/rewards", to: "pages#reward", as: "reward"
+  get "/events", to: "pages#event", as: "event"
 end

@@ -26,7 +26,7 @@ div.container.p-0
 									div.col-md-4.mb-3
 										div.card.h-100.align-items-center
 											= link_to product_path(product) do
-												- if product.photo.any?
+												- if product.photo.attached?
 													= image_tag product.photo, class: 'img-fluid'
 												- else
 													= image_tag 'jocha logo.jpg', class: 'img-fluid'

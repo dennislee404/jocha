@@ -8,10 +8,10 @@ div.container.p-0
 			div.content.col-10.p-2
 				div.container-fluid
 					h3 Menu
-					div.menu-content.row.ms-5	
+					div.row	
 						- if @categories.any?
 							- @categories.each do |category|
-								div.mb3.lg-mb5.col-6
+								div.mb3.col-md-6
 									= link_to category_path(category) do
 										div.d-flex.align-items-center.px-3.gap-3 
 											- if Product.find_by(category_id: category.id).photo.any?

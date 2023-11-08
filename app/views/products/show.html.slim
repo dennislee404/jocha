@@ -1,6 +1,6 @@
 div.container
 	div.row
-		div.col-4
+		div.col-md-4
 			- if @product.photo.attached?
 				= image_tag @product.photo, class:"img-fluid"
 			- else

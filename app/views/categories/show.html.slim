@@ -24,7 +24,7 @@ div.container.p-0
 							- if @category.products.any?
 								- @category.products.each do |product|
 									div.col-md-4.mb-3
-										div.card.h-100
+										div.card.h-100.align-items-center
 											= link_to product_path(product) do
 												- if product.photo.attached?
 													= image_tag product.photo, class: 'img-fluid'

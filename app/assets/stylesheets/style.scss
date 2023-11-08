@@ -1,3 +1,8 @@
+// khaki #BCA88E
+// misty blue #E3E8E9
+// celadon green #9AB19A
+// rose water #E4B4B4
+
 a {
 	text-decoration: none !important; 
 	color: black !important;
@@ -5,30 +10,40 @@ a {
 
 body {
 	background-color: white;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial,Helvetica, sans-serif !important;
 }
 
 .kelly-green {
-	background-color: #055816 !important;
+	background-color: #BCA88E !important;
 	h1 {
 		font-weight: bold;
 	}
 }
 
 .kelly {
-	background-color: #8BCA67;
+	background-color: #E3E8E9;
 	height: 100%;
+}
+
+.rose {
+	background-color: #E4B4B4 !important;
+}
+
+.btn {
+	background-color: #9AB19A !important;
+	color: black !important;
+	border: 1px solid black !important;
 }
 
 .pages {
 	.row {
-		background-color: #8BCA67;
+		background-color: #BCA88E;
 		.button {
 			padding: 8px 20px 8px 20px;
-			border : 1px solid #055816;
+			border : 1px solid black;
 			border-radius: 40px;	
-			background-color: #8BCA67;
-			color: #055816;			
+			background-color: #9AB19A;
+			color: black;			
 		}
 	}
 }
@@ -45,15 +60,15 @@ body {
 .navbar{
 	box-shadow: 0 1px 3px rgba(0,0,0,.1),0 2px 2px rgba(0,0,0,.06),0 0 2px rgba(0,0,0,.07);
 	positon: fixed; 
-	background-color: #F9D976;
+	background-color: #9AB19A;
 }
 
 .sidebar {
-	background: #F9D976;
+	background: #BCA88E;
 }
 
 .content {
-	background: #8BCA67;
+	background: #E3E8E9;
 }
 
 .nav-item {
@@ -74,7 +89,7 @@ body {
 }
 
 .sign-in {
-	background-color: #8BCA67;
+	background-color: #cedbce;
 }
 
 .join-now {
@@ -85,11 +100,11 @@ body {
 }
 
 .join-now:hover {
-	background-color: #06801f;
+	background-color: #729672;
 }
 
 .sign-in:hover {
-	background-color: #06801f;
+	background-color: #729672;
 }
 
 // .home-section {
@@ -120,7 +135,7 @@ body {
 		thead {
 			font-weight: 700;
 			td {
-				background-color: #198754;
+				background-color: #BCA88E;
 				color: white;
 				border: none;
 				padding: 6px 0;

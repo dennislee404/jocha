@@ -2,7 +2,7 @@ div.wrapper.text-center
   div.response.container.content
     - if @result
       div.icon
-        /= image_tag asset_path("#{@result[:icon]}.svg")
+        = image_tag asset_path("#{@result[:icon]}.svg")
       h1 = @result[:header] 
       section
         p = @result[:message]

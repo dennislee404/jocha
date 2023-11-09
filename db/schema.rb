@@ -57,9 +57,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_052442) do
     t.integer "quantity"
     t.integer "item_id"
     t.string "item_type"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price_cents"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -135,13 +136,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_052442) do
     t.decimal "price", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "variant_item_id"
+    t.bigint "variant_item_id", null: false
     t.index ["product_id"], name: "index_product_variants_on_product_id"
     t.index ["variant_item_id"], name: "index_product_variants_on_variant_item_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.bigint "category_id", null: false
     t.decimal "price", precision: 5, scale: 2
     t.datetime "created_at", null: false

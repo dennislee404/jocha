@@ -3,34 +3,3 @@ p put braintree here
 
 = form_for @order do |f|
 	= f.submit 'Submit', class:"btn btn-success"
-
-<div class="container">
-    <div id="dropin-wrapper">
-      <div id="checkout-message"></div>
-      <div id="dropin-container"></div>
-      <button id="submit-button">Submit payment</button>
-    </div>
-    <script>
-      var button = document.querySelector('#submit-button');
-
-      braintree.dropin.create({
-        // Insert your tokenization key here
-        authorization: "<%= @client_token%>",
-        container: '#dropin-container'
-        }, function (createErr, instance) {
-        button.addEventListener('click', function () {
-          instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-            // When the user clicks on the 'Submit payment' button this code will send the
-            // encrypted payment information in a variable called a payment method nonce
-            $.ajax({
-              type: 'POST',
-              url: '/checkout',
-              data: {'payment_method_nonce': payload.nonce}
-            }).done(function(result) {
-
-            });
-          });
-        });
-      });
-    </script>
-</div>

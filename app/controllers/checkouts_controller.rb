@@ -53,6 +53,11 @@ class CheckoutsController < ApplicationController
           end
         end
 
+        @cart.cart_items.each do |item|
+          item.destroy
+        end
+        @cart.clear
+
         redirect_to checkout_path(id: result.transaction.id, order_id: @order.id)
       else
         error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }

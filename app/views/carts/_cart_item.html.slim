@@ -4,7 +4,7 @@ tbody
         	i.fas.fa-trash-alt
         - if cart_item.item_type == "Product"
             td.py-3
-                - if cart_item.item.photo.any? 
+                - if cart_item.item.photo.attached? 
                     = image_tag cart_item.item.photo
                 - else
                     = image_tag 'jocha logo.jpg'
@@ -20,7 +20,7 @@ tbody
                                     div = number_to_currency(option.option_item.price, unit: "+ ")
         - else          
             td.py-3
-                - if cart_item.item.product.photo.any?
+                - if cart_item.item.product.photo.attached?
                     = image_tag cart_item.item.product.photo
                 - else
                     = image_tag 'jocha logo.jpg'

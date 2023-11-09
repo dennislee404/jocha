@@ -46,8 +46,8 @@ div.container
 											div
 												- if item.price != 0
 													= number_to_currency(item.price, unit:"+")
-								
-				= submit_tag 'Add to cart', class: "btn mt-2"
+				div.d-flex.justify-content-end				
+					= submit_tag 'Add to cart', class: "btn mt-2"
 				br
 
 = render partial: 'carts/cart_footer'

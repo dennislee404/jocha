@@ -1,25 +1,20 @@
 div.wrapper
   div.checkout.container
-    div.content
+    div.content.p-2
 
       header
-        h1 Hi, let's test a transaction
-        p Make a test payment with Braintree using PayPal or a card
+        h1 Total amount to be paid is RM#{@cart.total} 
 
       = form_tag("/checkouts", method: "post", id: "payment-form") do
         section
-          <label for="amount">
-            <span class="input-label">Amount</span>
-            div.input-wrapper.amount-wrapper
-              <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
-          </label>
-
           div.bt-drop-in-wrapper
             div#bt-dropin
-
-        <input type="hidden" id="nonce" name="payment_method_nonce" />
-        <button class="button" type="submit"><span>Test Transaction</span></button>
-
+        <input type="hidden" id="amount" name="amount" value="#{@cart.total}"/>
+        <input type="hidden" id="nonce" name="payment_method_nonce"/>
+        div.d-flex.justify-content-end
+          = submit_tag "MAKE PAYMENT", class: "btn"
+      div.d-flex.justify-content-end
+        = button_to 'BACK TO CART', cart_path, method: :get, class: "btn mt-2"
 
 <script src="https://js.braintreegateway.com/web/dropin/1.40.1/js/dropin.min.js"></script>
 javascript:

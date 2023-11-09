@@ -30,5 +30,42 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
+
+		gateway = Braintree::Gateway.new(
+		  :environment => :sandbox,
+		  :merchant_id => 'm7jf5wzwgdsbcqzw',
+		  :public_key => 'vm5dk6pxbphyt7g3',
+		  :private_key => '003728ef6152735bd141b9baec86040b',
+		)
+    
+  		@client_token = gateway.client_token.generate
+	end
+
+	def checkout
+		gateway = Braintree::Gateway.new(
+		  :environment => :sandbox,
+		  :merchant_id => 'm7jf5wzwgdsbcqzw',
+		  :public_key => 'vm5dk6pxbphyt7g3',
+		  :private_key => '003728ef6152735bd141b9baec86040b',
+		)
+		 nonce_from_the_client = params[:payment_method_nonce]
+
+		result = gateway.transaction.sale(
+		  :amount => "10.00",
+		  :payment_method_nonce => nonce_from_the_client,
+		  :options => {
+		    :submit_for_settlement => true
+		  }
+		)
+
+		if result.success?
+			puts "success!: #{result.transaction.id}"
+		elsif result.transaction
+			puts "Error processing transaction:"
+			puts "	code: #{result.transaction.processor_response_code}"
+			puts "	text: #{result.transaction.processor_response_text}" 
+		else
+			p result.errors 
+		end
 	end
 end

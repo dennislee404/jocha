@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'transactions/new'
+  post 'checkout', to: 'orders#checkout'
+  
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -26,6 +29,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :new, :create] do 
     resources :order_items, only: [:new, :create]
   end
+
+  resources :transactions, only: [:new, :create]
 
   get "/locations", to: "pages#location", as: "location"
   get "/rewards", to: "pages#reward", as: "reward"

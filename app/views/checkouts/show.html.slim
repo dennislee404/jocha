@@ -1,110 +1,33 @@
 div.wrapper.text-center
-  div.response.container
-    div.content
-      - if @result
-        div.icon
-          /= image_tag asset_path("#{@result[:icon]}.svg")
-        h1 = @result[:header] 
-        section
-          p = @result[:message]
-      - else
-        section
-          p Test another transaction or see the Braintree API response.
-
+  div.response.container.content
+    - if @result
+      div.icon
+        /= image_tag asset_path("#{@result[:icon]}.svg")
+      h1 = @result[:header] 
       section
-        a class="button primary back" href="/checkouts/new" 
-          span Test Another Transaction
+        p = @result[:message]
 
-aside.drawer.dark.text-center
-  header
-    div.content.compact
-      <a href="https://developers.braintreepayments.com" class="braintree" target="_blank">Braintree</a>
-      h3 API Response
-
-  articl.content.compact
-    section
-      h5 Transaction
-      <table cellpadding="0" cellspacing="0">
-        tbody
-          tr
-            th id
-            td = @transaction.id
-          tr
-            th type
-            td = @transaction.type
-          tr
-            th amount
-            td = @transaction.amount
-          tr
-            th status
-            td = @transaction.status
-          tr
-            th created_at
-            td = @transaction.created_at
-          tr
-            th updated_at
-            td = @transaction.updated_at
-
-    section
-      h5 Payment
-      <table cellpadding="0" cellspacing="0">
-        tbody
-          tr
-            th token
-            td = @transaction.credit_card_details.token
-          tr
-            th bin
-            td = @transaction.credit_card_details.bin
-          tr
-            th last_4
-            td = @transaction.credit_card_details.last_4
-          tr
-            th card_type
-            td = @transaction.credit_card_details.card_type
-          tr
-            th expiration_date
-            td = @transaction.credit_card_details.expiration_date
-          tr
-            th cardholder_name
-            td = @transaction.credit_card_details.cardholder_name
-          tr
-            th customer_location
-            td = @transaction.credit_card_details.customer_location
-
-    - if @transaction.customer_details.id
-      section
-        h5 Customer
-
-        <table cellpadding="0" cellspacing="0">
-          tbody
-            tr
-              th id
-              td = @transaction.customer_details.id
-            tr
-              th first_name
-              td = @transaction.customer_details.first_name
-            tr
-              th last_name
-              td = @transaction.customer_details.last_name
-            tr
-              th email
-              td = @transaction.customer_details.email
-            tr
-              th company
-              td = @transaction.customer_details.company
-            tr
-              thwebsite
-              td = @transaction.customer_details.website
-            tr
-              th phone
-              td = @transaction.customer_details.phone
-            tr
-              th fax
-              td = @transaction.customer_details.fax
-
-    section
-      p.center.small Integrate with the Braintree SDK for a secure and seamless checkout
-    section
-      <a class="button secondary full" href="https://developers.braintreepayments.com/guides/drop-in" target="_blank">
-        span See the Docs
-
+  article.container.content
+    section#receipt-container.container-fluid.my-5
+      section.col-md-6.offset-md-3
+        h1 JOCHA
+        p B11, Ground Floor, Block B, Grand Plaza Putatan, 80000, Putatan, Sabah, Malaysia
+        hr
+        div.d-flex.justify-content-between.align-items-center
+          div.text-start
+            strong Transaction ID: #{@transaction.id}
+            p Date: #{@order.created_at}
+          div.text-center
+            h3 ORDER 
+            h3 = @order.id
+        <table width="100%">
+            thead
+                tr
+                    td.ps-2.text-start Qty
+                    td.ps-2.text-start Item
+                    td.pe-2.text-end Price (MYR)
+        = render partial: '/orders/order_item', :collection => @order.order_items          
+        </table>
+        div.d-flex.justify-content-between.ps-5.mt-2
+          h1 Total(MYR)
+          h1 = number_to_currency(@order.total_price, unit:"")

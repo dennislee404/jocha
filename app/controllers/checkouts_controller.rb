@@ -16,6 +16,7 @@ class CheckoutsController < ApplicationController
     def show
       @transaction = gateway.transaction.find(params[:id])
       @result = _create_result_hash(@transaction)
+      @order = Order.find(params[:order_id])
     end
   
     def create
@@ -31,7 +32,28 @@ class CheckoutsController < ApplicationController
       )
   
       if result.success? || result.transaction
-        redirect_to checkout_path(result.transaction.id)
+
+        if user_signed_in?
+          @order = current_user.orders.create(status: 1)
+        else
+          @order = Order.create(status: 1)
+        end
+        
+        if @order.save
+          @cart.cart_items.each do |cart_item|
+            if cart_item.item_type == "Product"
+              @order_item = @order.order_items.create(product: "#{cart_item.item.name} (#{sprintf "%.2f",cart_item.item.price}/ea)", quantity: cart_item.quantity, price: cart_item.price_cents)
+            else
+              @order_item = @order.order_items.create(product: "#{cart_item.item.product.name} (#{cart_item.item.variant_item.name}) (#{sprintf "%.2f",cart_item.item.price}/ea)", quantity: cart_item.quantity, price: cart_item.price_cents)
+            end
+    
+            cart_item.cart_item_options.each do |cart_item_option|
+              @order_item.order_item_options.create(name: cart_item_option.option_item.name, price: cart_item_option.option_item.price)
+            end
+          end
+        end
+
+        redirect_to checkout_path(id: result.transaction.id, order_id: @order.id)
       else
         error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
         flash[:error] = error_messages
@@ -46,7 +68,7 @@ class CheckoutsController < ApplicationController
         result_hash = {
           :header => "Sweet Success!",
           :icon => "success",
-          :message => "Your test transaction has been successfully processed. See the Braintree API response and try again."
+          :message => "Your transaction has been successfully processed. Thank you for ordering with Jocha"
         }
       else
         result_hash = {

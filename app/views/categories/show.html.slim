@@ -30,8 +30,9 @@ div.container.p-0
 													= image_tag product.photo, class: 'img-fluid'
 												- else
 													= image_tag 'jocha logo.jpg', class: 'img-fluid'
-												div.card-body
-													h6.card-title.text-center = product.name
+												.card-body.d-flex.justify-content-between
+													h6.card-title = product.name
+													h6.card-title = number_to_currency(product.price, unit: "RM ")
 br
 	br
 = render partial: 'carts/cart_footer'

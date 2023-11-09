@@ -8,17 +8,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
-    <link rel="website icon" href="jocha.png"> 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <!-- <script defer src="app.js"></script> -->
     <script src="https://js.braintreegateway.com/web/dropin/1.40.2/js/dropin.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
-    <%= include_gon %>
-    <%= stylesheet_link_tag "application" %>
-    <%= csrf_meta_tags %>
+
   <body>
     <nav class="navbar navbar-expand-lg p-2">
       <div class="container-fluid">

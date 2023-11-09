@@ -1,11 +1,11 @@
 div.container
 	div.row
-		div.col-md-4
+		div.col-md-4.text-center
 			- if @product.photo.attached?
 				= image_tag @product.photo, class:"img-fluid"
 			- else
 				= image_tag 'jocha logo.jpg', class:"img-fluid"	
-		div.col-8
+		div.col-md-8
 			= form_tag cart_items_path, method: :post do
 				= hidden_field_tag 'id', @product.id
 				div.d-flex.gap-1.align-items-center
@@ -20,7 +20,7 @@ div.container
 				div.mt-2.row
 					-if @product.product_variants.any?
 						- @product.product_variants.each do |variant|
-							div.col-6
+							div.col-md-6
 								div.d-flex.justify-content-between
 									div.form-check.d-flex.gap-2
 										= radio_button_tag 'variant_item_id', "#{variant.id}", class: "form-check-input"
@@ -34,7 +34,7 @@ div.container
 								= Option.find(option.option_id).name
 							div.row
 								- Option.find(option.option_id).option_items.each do |item|
-									div.col-6
+									div.col-md-6
 										div.d-flex.justify-content-between
 											div.form-check.d-flex.gap-2
 												- if Option.find(option.option_id).max == 1
@@ -49,6 +49,8 @@ div.container
 				div.d-flex.justify-content-end				
 					= submit_tag 'Add to cart', class: "btn mt-2"
 				br
-
+br
+br
+br
 = render partial: 'carts/cart_footer'
 

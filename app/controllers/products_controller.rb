@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 	before_action :set_product, only: [:show, :edit, :update, :destroy]
+	
 	def new
 		@category = Category.find_by(id: params[:category_id])
 		@product = Product.new

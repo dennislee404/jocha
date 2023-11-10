@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :orders
 
-  def is_admin?(user)
-    user.admin
+  def is_admin?
+    admin == true
   end
 end

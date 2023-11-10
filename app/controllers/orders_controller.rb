@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+	before_action :check_if_user_admin, only: [:show, :index]
+	
 	def index
-		@orders = Order.all.order(created_at: :desc)
+		@orders = Order.order(created_at: :desc).limit(5)
 	end
 
 	def new
@@ -34,5 +36,11 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
+	end
+
+	def check_if_user_admin
+		unless user_signed_in? && current_user.is_admin?
+			redirect_to root_path
+		end
 	end
 end

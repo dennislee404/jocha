@@ -12,7 +12,7 @@ div.container
 					strong = link_to "#{@product.category.name} / ", category_path(id: @product.category.id)
 					strong = @product.name
 					- if user_signed_in?
-						- if current_user.is_admin?(current_user)
+						- if current_user.is_admin?
 							= link_to edit_product_path(@product) do 
 								i.fa.fa-pen-to-square
 							= link_to product_path(@product), data: {turbo_method: :delete, turbo_confirm: "Confirm delete product?"} do 

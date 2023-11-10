@@ -1,6 +1,6 @@
 div.container.p-0
 	- if user_signed_in?
-		- if current_user.is_admin?(current_user)
+		- if current_user.is_admin?
 			strong.d-flex.justify-content-end.mb-2 = link_to '+ New Category', new_category_path
 	div.container-fluid
 		div.row

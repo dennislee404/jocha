@@ -1,4 +1,8 @@
-div.sidebar.col-2.p-2
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  div.offcanvas-header
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  <div class="offcanvas-body">
 	- if @categories.any?
 		- @categories.each do |category|
 			= link_to category.name, category_path(category)
@@ -6,3 +10,5 @@ div.sidebar.col-2.p-2
 			br
 	- else
 		p No category yet.
+  </div>
+</div>

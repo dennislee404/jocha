@@ -5,9 +5,9 @@ div.container.p-0
 	div.container-fluid
 		div.row
 			= render partial: 'category_sidebar' 
-			div.content.col-10.p-2
+			div.content.col.p-2
 				div.container-fluid
-					h3 Menu
+					<h3 style="cursor: pointer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Menu</h3>
 					div.row	
 						- if @categories.any?
 							- @categories.each do |category|

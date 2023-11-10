@@ -5,11 +5,12 @@ div.container.p-0
 	div.container-fluid
 		div.row
 			= render partial: 'category_sidebar' 
-			div.content.col-10.p-2
+			div.content.p-2
 				div.container-fluid
 					div.d-flex.justify-content-between
-						div.d-flex.gap-1.align-items-center
-							h3 = @category.name
+						div.d-flex.gap-2
+							<h3 style="cursor: pointer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Menu</h3>
+							h3  = " / #{@category.name} "
 							- if user_signed_in?
 								- if current_user.is_admin?(current_user)
 									= link_to edit_category_path(@category) do 

@@ -14,8 +14,8 @@ div.container.p-0
 								div.mb3.col-md-6
 									= link_to category_path(category) do
 										div.d-flex.align-items-center.px-3.gap-3 
-											- if Product.find_by(category_id: category.id).photo.attached?
-												= image_tag Product.find_by(category_id: category.id).photo, class: 'img-thumbnail'
+											- if Product.where(category_id: category.id).last.photo.attached?
+												= image_tag Product.where(category_id: category.id).last.photo, class: 'img-thumbnail'
 											- else
 												= image_tag 'jocha logo.jpg', class: 'img-thumbnail'
 											p = category.name

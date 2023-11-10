@@ -22,7 +22,7 @@ div.container.p-0
 					div
 						div.row
 							- if @category.products.any?
-								- @category.products.each do |product|
+								- @category.products.order(created_at: :asc).each do |product|
 									div.col-md-4.mb-3
 										div.card.h-100.align-items-center
 											= link_to product_path(product) do

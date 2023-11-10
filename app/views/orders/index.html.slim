@@ -1,0 +1,21 @@
+.container
+    table.table.text-center
+        thead
+            tr
+                <th scope="col">ID</th>
+                <th scope="col">Transaction ID</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Number</th>       
+        / = render partial: 'order_details', :collection => @orders
+        - if @orders.any?
+            - @orders.each do |order|
+                tbody
+                    tr
+                        th = order.id
+                        td = order.transaction_id 
+                        td = number_to_currency(order.total_price, unit: "RM ")
+                        td = order.name
+                        td = order.hp
+
+        

@@ -1,7 +1,7 @@
 section.container
     h2.font-weight-bold Cart
 section#cart-container.container.my-5
-    <table>
+    table
         thead
             tr.text-center
                 td Remove 
@@ -11,7 +11,6 @@ section#cart-container.container.my-5
                 td Quantity
                 td Total
         = render partial: 'cart_item', :collection => @cart.cart_items
-    </table>
 section#cart-bottom.container
     div.col-md-12
         div
@@ -25,8 +24,10 @@ section#cart-bottom.container
             div.d-flex.justify-content-between.px-5
                 h6 Total
                 p = number_to_currency(@cart.total, unit: 'RM ')
-            div.d-flex.justify-content-between
-                = button_to 'BACK TO MENU', categories_path, method: :get, class: "btn btn-success"
-                = button_to 'PROCEED TO CHECKOUT', new_checkout_path, method: :get, class: "btn btn-success" 
+            div.row
+                div.col-md-3
+                    = button_to 'BACK TO MENU', categories_path, method: :get, class: "btn w-100"
+                div.col-md-3.offset-md-6
+                    = button_to 'PROCEED TO CHECKOUT', new_checkout_path, method: :get, class: "btn w-100" 
 
 

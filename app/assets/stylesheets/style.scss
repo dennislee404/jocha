@@ -164,7 +164,12 @@ body {
 
 #cart-container table td:nth-child(1),
 #cart-container table td:nth-child(5){
-	width: 100px;
+	width: 80px;
+}
+
+#cart-container table td:nth-child(2),
+#cart-container table td:nth-child(3){
+	width: 270px;
 }
 
 #cart-container table td:nth-child(4),

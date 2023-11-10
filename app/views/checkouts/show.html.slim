@@ -7,7 +7,7 @@ div.wrapper.text-center
         p = @result[:message]
 
   article.container.content
-    section#receipt-container.container-fluid.my-5
+    section.container-fluid.my-5
       section.col-md-6.offset-md-3
         h1 JOCHA
         p B11, Ground Floor, Block B, Grand Plaza Putatan, 80000, Putatan, Sabah, Malaysia
@@ -21,14 +21,15 @@ div.wrapper.text-center
           div.text-center
             h3 ORDER 
             h3 = @order.id
-        <table width="100%">
+        #receipt-container
+          <table width="100%">
             thead
-                tr
-                    td.ps-2.text-start Qty
-                    td.ps-2.text-start Item
-                    td.pe-2.text-end Price (MYR)
-        = render partial: '/orders/order_item', :collection => @order.order_items          
-        </table>
-        div.d-flex.justify-content-between.ps-5.mt-2
+              tr
+                  td.ps-2.text-start Qty
+                  td.ps-2.text-start Item
+                  td.pe-2.text-end Price (MYR)
+            = render partial: '/orders/order_item', :collection => @order.order_items          
+          </table>
+        div.d-flex.justify-content-between.ps-5.pe-2.mt-2
           h1 Total(MYR)
           h1 = number_to_currency(@order.total_price, unit:"")

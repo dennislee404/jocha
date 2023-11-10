@@ -4,7 +4,11 @@ section#receipt-container.container-fluid.my-5
 		p B11, Ground Floor, Block B, Grand Plaza Putatan, 80000, Putatan, Sabah, Malaysia
 		hr
 		div.d-flex.justify-content-between.align-items-center
-			p Date: #{@order.created_at}
+			div.text-start
+				strong Transaction ID: #{@order.transaction_id}
+				p.m-0 Date: #{@order.created_at}
+				p.m-0 Name: #{@order.name}
+				p Phone number: #{@order.hp}
 			div.text-center
 				h3 ORDER 
 				h3 = @order.id

@@ -15,7 +15,9 @@ div.wrapper.text-center
         div.d-flex.justify-content-between.align-items-center
           div.text-start
             strong Transaction ID: #{@transaction.id}
-            p Date: #{@order.created_at}
+            p.m-0 Date: #{@order.created_at}
+            p.m-0 Name: #{@order.name}
+            p Phone number: #{@order.hp}
           div.text-center
             h3 ORDER 
             h3 = @order.id

@@ -22,6 +22,8 @@ class CheckoutsController < ApplicationController
     def create
       amount = params["amount"] # In production you should not take amounts directly from clients
       nonce = params["payment_method_nonce"]
+      @name = params[:name]
+      @hp = params[:hp]
   
       result = gateway.transaction.sale(
         amount: amount,
@@ -30,13 +32,13 @@ class CheckoutsController < ApplicationController
           :submit_for_settlement => true
         }
       )
-  
+
       if result.success? || result.transaction
 
         if user_signed_in?
-          @order = current_user.orders.create(status: 1)
+          @order = current_user.orders.create(name: @name, hp: @hp, transaction_id: result.transaction.id )
         else
-          @order = Order.create(status: 1)
+          @order = Order.create(name: @name, hp: @hp, transaction_id: result.transaction.id)
         end
         
         if @order.save

@@ -1,7 +1,7 @@
 section.container
     h2.font-weight-bold Cart
 section#cart-container.container.my-5
-    <table width="100%">
+    <table>
         thead
             tr.text-center
                 td Remove 
@@ -13,7 +13,7 @@ section#cart-container.container.my-5
         = render partial: 'cart_item', :collection => @cart.cart_items
     </table>
 section#cart-bottom.container
-    div.total.col-lg-12.col-md-12.col-12
+    div.col-md-12
         div
             div.d-flex.justify-content-between.px-5
                 h6 Subtotal

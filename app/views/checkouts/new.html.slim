@@ -6,7 +6,14 @@ div.wrapper
         h1 Total amount to be paid is RM#{@cart.total} 
 
       = form_tag("/checkouts", method: "post", id: "payment-form") do
-        section
+        = label_tag "name" , "Name", class:"form-label"
+        br
+        = text_field_tag "name" , nil, placeholder: "Please enter your name", class:"form-control"
+        br
+        = label_tag "hp" , "Phone number", class:"form-label"
+        br
+        = text_field_tag "hp" , nil,  placeholder: "Please enter your phone number", class:"form-control"      
+        section.mt-3
           div.bt-drop-in-wrapper
             div#bt-dropin
         <input type="hidden" id="amount" name="amount" value="#{@cart.total}"/>
